@@ -10,25 +10,56 @@ html {
 }
 
 header {
-   background-color: brown;
+   /* background-color: brown; */
    height: 100vh;
+   position: relative;
+   background-image:
+      linear-gradient(rgba(22, 22, 22, 0.6), rgba(22, 22, 22, 0.6)),
+      url(hero.jpg);
+   background-size: cover;
+   background-position: center;
+   color: #fff;
 }
 
 .container {
    margin: 0 auto;
    width: 1200px;
 }
+
 nav {
    font-size: 20px;
    font-weight: 700;
    display: flex;
    justify-content: space-between;
-   background-color: green;
+   padding: 32px;
+   cursor: pointer;
+   /* background-color: green; */
+   /* background-image: linear-gradient(to right, red, blue); */
+}
+
+.header-container {
+   width: 1200px;
+   position: absolute;
+
+   /* in relation to the parent */
+   left: 50%;
+   top: 50%;
+
+   /* in relation to its own dimensions */
+   /* background-color: blueviolet; */
+   transform: translate(-50%, -50%);
+}
+
+.header-container-inner {
+   width: 50%;
+   /* box-shadow: 0 0 1px #414040; */
+   /* background-color: chartreuse; */
 }
 
 h1 {
    font-size: 52px;
    margin-bottom: 32px;
+   line-height: 1.05;
 }
 
 p {
@@ -41,7 +72,7 @@ p {
 .btn:visited {
    font-size: 20px;
    font-weight: 600;
-   background-color: tomato;
+   background-color: #1c7ed6;
    color: white;
    text-decoration: none;
 
@@ -52,6 +83,9 @@ p {
 
 .btn:hover,
 .btn:active {
+   color: #1c7ed6;
+   background-color: white;
+   outline: 4px solid #1c7ed6; /* nie wplywa na rozmiar buttona, rysowana nad*/
 }
 
 h2 {
@@ -60,5 +94,5 @@ h2 {
 
 section {
    padding: 96px;
-   background-color: aquamarine;
+   /* background-color: aquamarine; */
 }
