@@ -1,0 +1,64 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+html {
+   font-family: "Rubik", sans-serif;
+   line-height: 1;
+}
+
+header {
+   background-color: brown;
+   height: 100vh;
+}
+
+.container {
+   margin: 0 auto;
+   width: 1200px;
+}
+nav {
+   font-size: 20px;
+   font-weight: 700;
+   display: flex;
+   justify-content: space-between;
+   background-color: green;
+}
+
+h1 {
+   font-size: 52px;
+   margin-bottom: 32px;
+}
+
+p {
+   font-size: 20px;
+   line-height: 1.6;
+   margin-bottom: 48px;
+}
+
+.btn:link,
+.btn:visited {
+   font-size: 20px;
+   font-weight: 600;
+   background-color: tomato;
+   color: white;
+   text-decoration: none;
+
+   display: inline-block;
+   padding: 16px 32px;
+   border-radius: 9px;
+}
+
+.btn:hover,
+.btn:active {
+}
+
+h2 {
+   font-size: 44px;
+}
+
+section {
+   padding: 96px;
+   background-color: aquamarine;
+}
