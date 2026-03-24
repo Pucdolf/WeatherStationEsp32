@@ -12,7 +12,7 @@ Default: 1
 
 --- 02 COLORS
 - Primary: #1c7ed6
-- Tints:
+- Tints: #1665ab
 - Shades:
 - Accents:
 - Greys:
@@ -32,74 +32,31 @@ Default: 1
    box-sizing: border-box;
 }
 
-/* html {
-   font-family: "Rubik", sans-serif;
-   line-height: 1;
-} */
-
+html {
+   /* 1 rem = 10px */
+   font-size: 62.5%;
+}
 body {
    font-family: "Rubik", sans-serif;
    line-height: 1;
    font-weight: 400;
 }
 
-header {
-   /* background-color: brown; */
-   height: 100vh;
-   position: relative;
-   background-image:
-      linear-gradient(rgba(22, 22, 22, 0.6), rgba(22, 22, 22, 0.6)),
-      url(../img/hero.jpg);
-   background-size: cover;
-   background-position: center;
-   color: #fff;
-}
-
+/**************************/
+/*GENERAL REUSABLE COMPONENTS*/
+/**************************/
 .container {
    margin: 0 auto;
-   width: 1200px;
+   max-width: 120rem;
 }
 
-nav {
-   font-size: 20px;
+.heading-primary {
+   font-size: 5.2rem;
    font-weight: 700;
-   display: flex;
-   justify-content: space-between;
-   padding: 32px;
-   cursor: pointer;
-   /* background-color: green; */
-   /* background-image: linear-gradient(to right, red, blue); */
-}
-
-.header-container {
-   width: 1200px;
-   position: absolute;
-
-   /* in relation to the parent */
-   left: 50%;
-   top: 50%;
-
-   /* in relation to its own dimensions */
-   /* background-color: blueviolet; */
-   transform: translate(-50%, -50%);
-}
-
-.header-container-inner {
-   width: 50%;
-   /* box-shadow: 0 0 1px #414040; */
-   /* background-color: chartreuse; */
-}
-
-h1 {
-   font-size: 52px;
-   margin-bottom: 32px;
+   margin-bottom: 3.2rem;
    line-height: 1.05;
-}
-
-p {
-   font-size: 20px;
-   line-height: 1.6;
-   margin-bottom: 48px;
+   letter-spacing: -0.5px;
+   color: #fff;
 }
 
 .btn:link,
@@ -113,13 +70,106 @@ p {
    display: inline-block;
    padding: 16px 32px;
    border-radius: 9px;
+
+   transition: all 1s;
 }
 
 .btn:hover,
 .btn:active {
    color: #1c7ed6;
    background-color: white;
-   outline: 4px solid #1c7ed6; /* nie wplywa na rozmiar buttona, rysowana nad*/
+   /* outline: 4px solid #1c7ed6;*/ /* nie wplywa na rozmiar buttona, rysowana nad*/
+   box-shadow: inset 0 0 0 4px #1c7ed6;
+}
+
+.margin-right-sm {
+   margin-right: 1.6rem !important;
+}
+
+/**************************/
+/*       HEADER           */
+/**************************/
+header {
+   /* background-color: brown; */
+   min-height: 100vh;
+   position: relative;
+   background-image:
+      linear-gradient(rgba(22, 22, 22, 0.6), rgba(22, 22, 22, 0.6)),
+      url(../img/hero.jpg);
+   background-size: cover;
+   background-position: center;
+   color: #fff;
+}
+
+/**************************/
+/* HERO SECTION*/
+/**************************/
+nav {
+   /* background-color: green; */
+   /* background-image: linear-gradient(to right, red, blue); */
+   font-size: 20px;
+   font-weight: 700;
+   display: flex;
+   justify-content: space-between;
+   padding: 32px;
+   cursor: pointer;
+}
+
+.header-container {
+   /* in relation to its own dimensions */
+   /* background-color: blueviolet; */
+   width: 100%;
+   max-width: 120rem;
+   padding: 0 3.2rem;
+   position: absolute;
+
+   /* in relation to the parent */
+   left: 50%;
+   top: 50%;
+
+   transform: translate(-50%, -50%);
+}
+
+.header-container-inner {
+   /* box-shadow: 0 0 1px #414040; */
+   /* background-color: chartreuse; */
+   width: 60%;
+}
+
+.heading-text {
+   font-size: 20px;
+   line-height: 1.6;
+   margin-bottom: 48px;
+}
+
+.enthusiasts-tracking {
+   display: flex;
+   align-items: center;
+   margin-top: 4.8rem;
+   gap: 1.2rem;
+}
+.enthusiasts-imgs {
+   display: flex;
+}
+.enthusiasts-imgs img {
+   width: 4.8rem;
+   height: 4.8rem;
+   border-radius: 50%;
+   margin-right: -1.6rem;
+   box-shadow: 0 0 3px/ 0.5px #fff;
+}
+
+.enthusiasts-imgs img:last-child {
+   margin-right: 0;
+}
+
+.enthusiasts-text {
+   font-size: 1.8rem;
+   font-weight: 600;
+}
+
+.enthusiasts-text span {
+   color: #1665ab;
 }
 
 h2 {
@@ -127,6 +177,6 @@ h2 {
 }
 
 section {
-   padding: 96px;
    /* background-color: aquamarine; */
+   padding: 96px;
 }
