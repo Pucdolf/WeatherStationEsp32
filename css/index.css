@@ -7,8 +7,16 @@
 - Font weights
 Default: 400
 
-- Line heights
+- Line weights
+Default: 400
+Medium: 500
+Semi-bold: 600
+Bold: 700
+
+-Line heights
 Default: 1
+Small: 1.05
+Paragraph default: 1.6
 
 --- 02 COLORS
 - Primary: #1c7ed6
@@ -16,10 +24,13 @@ Default: 1
 - Shades:
 - Accents:
 - Greys:
+#ced4da
+#fff
 
 --- 05 SHADOWS
 
 --- 06 BORDER RADIUS
+Default: 9px
 
 --- 07 WHITESPACE
 - Spacing System (px)
@@ -63,8 +74,7 @@ body {
 .btn:visited {
    font-size: 20px;
    font-weight: 600;
-   background-color: #1c7ed6;
-   color: white;
+
    text-decoration: none;
 
    display: inline-block;
@@ -74,12 +84,32 @@ body {
    transition: all 1s;
 }
 
-.btn:hover,
-.btn:active {
+.btn--full:link,
+.btn--full:visited {
+   color: white;
+   background-color: #1c7ed6;
+}
+
+.btn--full:hover,
+.btn--full:active {
    color: #1c7ed6;
    background-color: white;
    /* outline: 4px solid #1c7ed6;*/ /* nie wplywa na rozmiar buttona, rysowana nad*/
    box-shadow: inset 0 0 0 4px #1c7ed6;
+}
+
+.btn--outline:link,
+.btn--outline:visited {
+   background-color: #77b2e6;
+   color: white;
+}
+
+.btn--outline:hover,
+.btn--outline:active {
+   color: #77b2e6;
+   background-color: white;
+   /* outline: 4px solid #1c7ed6;*/ /* nie wplywa na rozmiar buttona, rysowana nad*/
+   box-shadow: inset 0 0 0 4px #77b2e6;
 }
 
 .margin-right-sm {
@@ -89,7 +119,89 @@ body {
 /**************************/
 /*       HEADER           */
 /**************************/
-header {
+.logo {
+   height: 4.8rem;
+   align-self: center;
+   transform: translate(-50%, 50);
+   cursor: pointer;
+}
+
+.logo:hover {
+   transform: scale(1.1);
+   transition: ease 1.5s;
+}
+
+.header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   /* TO MAKE THE HEADER STICKY LATER */
+   height: 6.2rem;
+   padding: 0 4.8rem;
+}
+
+/**************************/
+/*       HEADER           */
+/**************************/
+.main-nav {
+   /* background-color: green; */
+   /* background-image: linear-gradient(to right, red, blue); */
+   font-size: 20px;
+   font-weight: 700;
+   cursor: pointer;
+}
+
+.main-nav-list {
+   list-style: none;
+   display: flex;
+   align-items: center;
+   gap: 3.2rem;
+}
+
+.main-nav-link:link,
+.main-nav-link:visited {
+   text-decoration: none;
+   color: white;
+   font-size: 1.8rem;
+   font-weight: 500;
+
+   transition: all 0.3;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+   display: inline-block;
+   text-decoration: none;
+   color: #ced4da;
+   font-size: 1.8rem;
+   font-weight: 500;
+}
+
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+   padding: 0.8rem 1.6rem;
+   border-radius: 9px;
+   background-color: #1c7ed6;
+   transition: all 1s;
+}
+
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+   color: #1c7ed6;
+   background-color: white;
+   /* outline: 4px solid #1c7ed6;*/ /* nie wplywa na rozmiar buttona, rysowana nad*/
+   box-shadow: inset 0 0 0 2px #1c7ed6;
+}
+/**************************/
+/* HERO SECTION*/
+/**************************/
+.section-hero {
+   padding: 4.8rem 3.2rem 9.6rem 3.2rem;
+   margin: 0 auto;
+}
+
+.hero-background {
    /* background-color: brown; */
    min-height: 100vh;
    position: relative;
@@ -99,20 +211,6 @@ header {
    background-size: cover;
    background-position: center;
    color: #fff;
-}
-
-/**************************/
-/* HERO SECTION*/
-/**************************/
-nav {
-   /* background-color: green; */
-   /* background-image: linear-gradient(to right, red, blue); */
-   font-size: 20px;
-   font-weight: 700;
-   display: flex;
-   justify-content: space-between;
-   padding: 32px;
-   cursor: pointer;
 }
 
 .header-container {
@@ -176,7 +274,7 @@ h2 {
    font-size: 44px;
 }
 
-section {
+.section-how {
    /* background-color: aquamarine; */
    padding: 96px;
 }
