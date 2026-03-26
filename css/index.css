@@ -62,6 +62,14 @@ body {
    padding: 0 3.2rem;
 }
 
+.margin-right-sm {
+   margin-right: 1.6rem !important;
+}
+
+.margin-bottom-md {
+   margin-bottom: 4.2rem !important;
+}
+
 .grid {
    display: grid;
    gap: 9.6rem;
@@ -77,6 +85,10 @@ body {
 }
 
 .grid--3-cols {
+   grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--3-cols:nth-child(2) {
    grid-template-columns: repeat(3, 1fr);
 }
 
@@ -129,10 +141,6 @@ body {
    background-color: white;
    /* outline: 4px solid #1c7ed6;*/ /* nie wplywa na rozmiar buttona, rysowana nad*/
    box-shadow: inset 0 0 0 4px #1c7ed6;
-}
-
-.margin-right-sm {
-   margin-right: 1.6rem !important;
 }
 
 /**************************/
@@ -347,9 +355,9 @@ body {
 }
 
 .heading-tertiary {
-   font-size: 3.2rem;
+   font-size: 2.4rem;
    color: #333;
-   margin-bottom: 2.4rem;
+   margin-bottom: 3.2rem;
 }
 
 .how-number {
@@ -464,6 +472,7 @@ body {
    display: flex;
    flex-direction: column;
    gap: 1.2rem;
+   color: #555;
 }
 
 .tech-attribute {
@@ -485,19 +494,65 @@ body {
    font-weight: 500;
 }
 
+.heading-telemetry {
+   font-size: 2.4rem;
+   color: #333;
+   margin: 3.2rem 0;
+}
+
 .list {
    list-style: none;
    display: flex;
    flex-direction: column;
-   gap: 1.2rem;
+   gap: 1.8rem;
 }
 
 .list-item {
    font-size: 1.8rem;
+   font-weight: 500;
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   color: #555;
 }
 
-.list-temp {
-   font-size: 1.2rem;
+.list-item--temp {
+   font-size: 1.6rem;
+   font-weight: 400;
+   margin: 0 3.2rem;
+}
+
+.list-icon {
+   width: 2.4rem;
+   height: 2.4rem;
+   color: #1c7ed6;
+}
+
+.list-icon--temp {
+   width: 1.6rem;
+   height: 1.6rem;
+}
+
+.project-documentation {
+   display: flex;
+   align-self: center;
+   justify-self: center;
+}
+
+.tech-link {
+   font-size: 1.5rem;
+   font-weight: 500;
+   color: #1665ab;
+
+   cursor: pointer;
+}
+
+.tech-link:link,
+.tech-link:visited {
+}
+
+.tech-link:hover,
+.tech-link:active {
 }
 
 /**************************/
