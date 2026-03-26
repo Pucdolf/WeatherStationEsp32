@@ -180,76 +180,130 @@
          </div>
 
          <div class="container grid grid--3-cols">
-            <div class="">
+            <div class="tech">
                <img
                   src="img/esp32.jpg"
                   alt="Our technologies"
                   class="tech-img"
                />
-               <span class="tag"></span>
-               <p class="tech-name">ESP32</p>
-               <ul class="tech-attributes">
-                  <li class="tech-attribute">
-                     <ion-icon name="bluetooth-outline"></ion-icon>
-                     <span>Bluetooth</span>
-                  </li>
-                  <li class="tech-attribute">
-                     <ion-icon name="wifi-outline"></ion-icon>
-                     <span>WiFi </span>
-                  </li>
-                  <li class="tech-attribute">
-                     <ion-icon name="wifi-outline"></ion-icon>
-                     <span>WiFi </span>
-                  </li>
-                  <li class="tech-attribute">
-                     <ion-icon name="bluetooth-outline"></ion-icon>
-                     <span>Bluetooth </span>
-                  </li>
-               </ul>
+               <div class="tech-content">
+                  <div class="tech-tags">
+                     <span class="tag tag--mcu">MCU</span>
+                     <span class="tag tag--logic">3.3V LOGIC</span>
+                  </div>
+                  <p class="tech-name">Core Hardware</p>
+                  <ul class="tech-attributes">
+                     <li class="tech-attribute">
+                        <ion-icon
+                           class="tech-icon"
+                           name="pulse-outline"
+                        ></ion-icon>
+                        <span>Dual-Core <strong>240MHz</strong> CPU</span>
+                     </li>
+                     <li class="tech-attribute">
+                        <ion-icon
+                           class="tech-icon"
+                           name="battery-charging-outline"
+                        ></ion-icon>
+                        <span>Standalone Battery Power</span>
+                     </li>
+                     <li class="tech-attribute">
+                        <ion-icon
+                           class="tech-icon"
+                           name="git-network-outline"
+                        ></ion-icon>
+                        <span>I2C & SPI Interfaces </span>
+                     </li>
+                     <li class="tech-attribute">
+                        <ion-icon
+                           class="tech-icon"
+                           name="hardware-chip-outline"
+                        ></ion-icon>
+                        <span><strong>4MB</strong> Flash Memory </span>
+                     </li>
+                  </ul>
+               </div>
             </div>
-            <div class="">
+
+            <div class="tech">
                <img
                   src="img/esp32.jpg"
                   alt="Our technologies"
                   class="tech-img"
                />
-               <span class="tag"></span>
-               <p class="tech-name">ESP32</p>
-               <ul class="tech-attributes">
-                  <li class="tech-attribute">
-                     <ion-icon
-                        class="tech-icon"
-                        name="bluetooth-outline"
-                     ></ion-icon>
-                     <span>Bluetooth</span>
+
+               <div class="tech-content">
+                  <div class="tech-tags">
+                     <span class="tag tag--iot">IoT Gateway</span>
+                  </div>
+                  <p class="tech-name">Wireless Stack</p>
+                  <ul class="tech-attributes">
+                     <li class="tech-attribute">
+                        <ion-icon
+                           class="tech-icon"
+                           name="wifi-outline"
+                        ></ion-icon>
+                        <span>Wi-Fi <strong>802.11</strong> b/g/n </span>
+                     </li>
+                     <li class="tech-attribute">
+                        <ion-icon
+                           class="tech-icon"
+                           name="bluetooth-outline"
+                        ></ion-icon>
+                        <span>Bluetooth Low Energy (BLE)</span>
+                     </li>
+                     <li class="tech-attribute">
+                        <ion-icon
+                           class="tech-icon"
+                           name="globe-outline"
+                        ></ion-icon>
+                        <span>JSON & HTTP Protocols</span>
+                     </li>
+                     <li class="tech-attribute">
+                        <ion-icon
+                           class="tech-icon"
+                           name="cloud-circle-outline"
+                        ></ion-icon>
+                        <span>Secure <strong>OTA</strong> Updates </span>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+
+            <div class="telemetry">
+               <ul class="list">
+                  <li class="list-item">
+                     <ion-icon name="thermometer-outline"></ion-icon
+                     ><span>Temperature</span>
                   </li>
-                  <li class="tech-attribute">
-                     <ion-icon class="tech-icon" name="wifi-outline"></ion-icon>
-                     <span>WiFi </span>
+
+                  <li class="list-temp">
+                     <ion-icon name="checkmark-outline"></ion-icon
+                     ><span>Celcius</span>
                   </li>
-                  <li class="tech-attribute">
-                     <ion-icon class="tech-icon" name="wifi-outline"></ion-icon>
-                     <span>WiFi </span>
+                  <li class="list-temp">
+                     <ion-icon name="checkmark-outline"></ion-icon
+                     ><span>Fahrenheit</span>
                   </li>
-                  <li class="tech-attribute">
-                     <ion-icon
-                        class="tech-icon"
-                        name="bluetooth-outline"
-                     ></ion-icon>
-                     <span>Bluetooth </span>
+                  <li class="list-temp">
+                     <ion-icon name="checkmark-outline"></ion-icon
+                     ><span>Kelvin</span>
+                  </li>
+
+                  <li class="list-item">
+                     <ion-icon name="water-outline"></ion-icon
+                     ><span>Humidity</span>
+                  </li>
+                  <li class="list-item">
+                     <ion-icon name="sunny-outline"></ion-icon
+                     ><span>Luminosity</span>
+                  </li>
+                  <li class="list-item">
+                     <ion-icon name="speedometer-outline"></ion-icon
+                     ><span>Barometric Pressure</span>
                   </li>
                </ul>
             </div>
-            <div class="">Our IoT sensors are tuned for:</div>
-            <ul>
-               <li>Temperature</li>
-               <li>Temperature</li>
-               <li>Temperature</li>
-               <li>Temperature</li>
-               <li>Temperature</li>
-               <li>Temperature</li>
-               <li>Temperature</li>
-            </ul>
          </div>
       </section>
 
