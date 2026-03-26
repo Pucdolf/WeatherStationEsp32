@@ -61,6 +61,9 @@ body {
    margin: 0 auto;
    padding: 0 3.2rem;
 }
+.center-text {
+   text-align: center;
+}
 
 .margin-right-sm {
    margin-right: 1.6rem !important;
@@ -419,7 +422,7 @@ body {
 /* TECH SECTION*/
 /**************************/
 .section-tech {
-   padding: 9.6rem 0;
+   padding: 7.4rem 0;
    border-top: 42px solid #082640;
 }
 .heading-tech {
@@ -430,6 +433,12 @@ body {
    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.1);
    border-radius: 12px;
    overflow: hidden;
+   transition: all 0.4s;
+}
+
+.tech:hover {
+   transform: translateY(-1.2rem);
+   box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.3);
 }
 
 .tech-img {
@@ -494,10 +503,15 @@ body {
    font-weight: 500;
 }
 
+.telemetry {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
 .heading-telemetry {
    font-size: 2.4rem;
    color: #333;
-   margin: 3.2rem 0;
+   margin-bottom: 2.4rem;
 }
 
 .list {
@@ -539,20 +553,29 @@ body {
    justify-self: center;
 }
 
-.tech-link {
+.tech-link:link,
+.tech-link:visited {
+   display: inline-block;
    font-size: 1.5rem;
    font-weight: 500;
    color: #1665ab;
-
+   text-decoration: none;
+   border-bottom: 1px solid currentColor;
+   padding: 2px;
    cursor: pointer;
-}
-
-.tech-link:link,
-.tech-link:visited {
+   transition: all 0.3s;
 }
 
 .tech-link:hover,
 .tech-link:active {
+   display: inline-block;
+   font-size: 1.5rem;
+   font-weight: 500;
+   color: #114c80;
+   text-decoration: none;
+   border-bottom: 1px solid transparent;
+   padding: 2px;
+   cursor: pointer;
 }
 
 /**************************/
