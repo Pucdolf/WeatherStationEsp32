@@ -520,7 +520,9 @@
             <h3 class="heading-tertiary">Build your own Weather32 station</h3>
          </div>
 
-         <div class="container grid grid--2-cols grid--pricing">
+         <div
+            class="container grid grid--2-cols grid--pricing margin-bottom-md"
+         >
             <div class="starter-pricing starter-pricing--starter">
                <header class="starter-header">
                   <p class="starter-name">Starter Kit</p>
@@ -611,11 +613,50 @@
             </div>
          </div>
 
-         <div class="container grid grid--4-cols">
-            <div class="feature">feat</div>
-            <div class="feature">feat</div>
-            <div class="feature">feat</div>
-            <div class="feature">feat</div>
+         <div class="container grid">
+            <aside class="plan-details">
+               Component prices may vary depending on your supplier. Both
+               hardware tiers include the following software capabilities:
+            </aside>
+         </div>
+
+         <div class="container container-feat grid grid--4-cols">
+            <div class="feature">
+               <ion-icon class="feature-icon" name="logo-github"></ion-icon>
+               <p class="feature-title">Open Architecture</p>
+               <p class="feature-text">
+                  The entire C++ firmware, .NET backend logic, and hardware
+                  wiring schematics are open-source and available on GitHub.
+               </p>
+            </div>
+            <div class="feature">
+               <ion-icon class="feature-icon" name="server-outline"></ion-icon>
+               <p class="feature-title">100% Local Data</p>
+               <p class="feature-text">
+                  Zero cloud subscriptions or hidden rate limits. All telemetry
+                  data is securely stored within your local network limits.
+               </p>
+            </div>
+            <div class="feature">
+               <ion-icon class="feature-icon" name="cube-outline"></ion-icon>
+               <p class="feature-title">Containerized Stack</p>
+               <p class="feature-text">
+                  The SQL database and the .NET application are fully
+                  containerized using Docker Compose for seamless deployment.
+               </p>
+            </div>
+
+            <div class="feature">
+               <ion-icon
+                  class="feature-icon"
+                  name="construct-outline"
+               ></ion-icon>
+               <p class="feature-title">Highly Extensible</p>
+               <p class="feature-text">
+                  Built on the I2C bus and free GPIO pins, allowing effortless
+                  integration of additional air quality or soil sensors.
+               </p>
+            </div>
          </div>
       </section>
 
