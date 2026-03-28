@@ -1,0 +1,21 @@
+/**************************/
+/* BELOW 1344px (SMALLER DESKTOPS)*/
+/**************************/
+@media (max-width: 84em) {
+   .container-feat {
+      max-width: 120rem;
+   }
+
+   .heading-primary {
+      font-size: 4rem;
+   }
+
+   .header-container-inner {
+      width: 50%;
+   }
+
+   .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+   }
+}

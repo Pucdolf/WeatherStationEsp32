@@ -63,7 +63,7 @@ body {
 }
 
 h2 {
-   font-size: 44px;
+   font-size: 4.4rem;
 }
 
 /**************************/
@@ -133,7 +133,7 @@ h2 {
 }
 
 .heading-primary {
-   font-size: 5.2rem;
+   font-size: 5rem;
    font-weight: 700;
    margin-bottom: 3.2rem;
    line-height: 1.05;
@@ -143,13 +143,13 @@ h2 {
 .btn,
 .btn:link,
 .btn:visited {
-   font-size: 20px;
+   font-size: 2rem;
    font-weight: 600;
 
    text-decoration: none;
 
    display: inline-block;
-   padding: 16px 32px;
+   padding: 1.6rem 3.2rem;
    border-radius: 9px;
 
    transition: all 1s;
@@ -229,7 +229,7 @@ h2 {
 .main-nav {
    /* background-color: green; */
    /* background-image: linear-gradient(to right, red, blue); */
-   font-size: 20px;
+   font-size: 2rem;
    font-weight: 700;
    cursor: pointer;
 }
@@ -314,13 +314,13 @@ h2 {
 .header-container-inner {
    /* box-shadow: 0 0 1px #414040; */
    /* background-color: chartreuse; */
-   width: 60%;
+   width: 65%;
 }
 
 .heading-text {
-   font-size: 20px;
+   font-size: 2rem;
    line-height: 1.6;
-   margin-bottom: 48px;
+   margin-bottom: 4.8rem;
 }
 
 .enthusiasts-tracking {
@@ -420,7 +420,7 @@ h2 {
    font-size: 9.6rem;
    font-weight: 700;
    margin-bottom: 1.6rem;
-   text-shadow: 0 0 10px #082640;
+   text-shadow: 0 0 1rem #082640;
    color: #d2e5f7;
 }
 
@@ -446,7 +446,7 @@ h2 {
 .how-img-box::after {
    content: "";
    position: absolute;
-   border-radius: 20px;
+   border-radius: 2rem;
 }
 
 .how-img-box::before {
@@ -462,13 +462,13 @@ h2 {
    width: 70%;
    padding-bottom: 40%;
    z-index: -1;
-   box-shadow: inset 0 0 20px 4px #1c7ed6;
+   box-shadow: inset 0 0 2rem 4px #1c7ed6;
 }
 
 .how-img {
    width: 60%;
-   border-radius: 10px;
-   box-shadow: 0 0 50px 10px rgba(255, 255, 255, 0.415);
+   border-radius: 1rem;
+   box-shadow: 0 0 5rem 1rem rgba(255, 255, 255, 0.415);
 }
 
 /**************************/
@@ -476,7 +476,7 @@ h2 {
 /**************************/
 .section-tech {
    padding: 7.4rem 0;
-   border-top: 42px solid #082640;
+   border-top: 4.2rem solid #082640;
 }
 .heading-tech {
    margin-bottom: 5.2rem;
@@ -484,7 +484,7 @@ h2 {
 
 .tech {
    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.1);
-   border-radius: 12px;
+   border-radius: 1.2rem;
    overflow: hidden;
    transition: all 0.4s;
 }
@@ -519,7 +519,7 @@ h2 {
    font-weight: 500;
    color: #444;
    background-color: #d2e5f7;
-   border-radius: 50px;
+   border-radius: 5rem;
    text-transform: uppercase;
 }
 
@@ -634,7 +634,7 @@ h2 {
 /*TESTIMONIALS SECTION*/
 /**************************/
 .section-testimonials {
-   border-top: 42px solid #082640;
+   border-top: 4.2rem solid #082640;
    display: grid;
    grid-template-columns: 60fr 40fr;
    background-color: #d2e5f7;
@@ -694,7 +694,7 @@ h2 {
 }
 
 .section-pricing {
-   border-top: 42px solid #082640;
+   border-top: 4.2rem solid #082640;
    padding: 6.2rem 0;
 }
 
@@ -712,7 +712,7 @@ h2 {
 }
 
 .starter-pricing {
-   border-radius: 12px;
+   border-radius: 1.2rem;
    width: 80%;
 }
 
