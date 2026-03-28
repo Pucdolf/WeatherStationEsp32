@@ -43,6 +43,13 @@ Default: 9px
    box-sizing: border-box;
 }
 
+*:focus {
+   outline: none;
+   /* outline: 4px dotted #0b3256; */
+   box-shadow: 0 0 0 0.8rem #bbd8f3;
+   transition: all 0.3s;
+}
+
 html {
    /* 1 rem = 10px */
    font-size: 62.5%;
@@ -134,7 +141,7 @@ h2 {
    letter-spacing: -0.5px;
    color: #fff;
 }
-
+.btn,
 .btn:link,
 .btn:visited {
    font-size: 20px;
@@ -147,6 +154,9 @@ h2 {
    border-radius: 9px;
 
    transition: all 1s;
+
+   border: none;
+   cursor: pointer;
 }
 
 .btn--full:link,
@@ -175,6 +185,18 @@ h2 {
    background-color: white;
    /* outline: 4px solid #1c7ed6;*/ /* nie wplywa na rozmiar buttona, rysowana nad*/
    box-shadow: inset 0 0 0 4px #1c7ed6;
+}
+
+.btn--form {
+   background-color: #0b3256;
+   color: #e8f2fb;
+   align-self: end;
+   padding: 1.2rem;
+}
+
+.btn--form:hover {
+   background-color: #e8f2fb;
+   color: #0b3256;
 }
 
 /**************************/
@@ -789,7 +811,7 @@ h2 {
 
 .cta {
    display: grid;
-   grid-template-columns: 2fr 1fr;
+   grid-template-columns: 74fr 26fr;
    /* background-color: #1c7ed6; */
    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
    border-radius: 12px;
@@ -799,12 +821,12 @@ h2 {
 }
 
 .cta-text-box {
-   padding: 4.8rem 6.4rem 6.4rem 6.4rem;
+   padding: 4.8rem 5.2rem 5.2rem 6.4rem;
    color: #0b3256;
 }
 
 .cta .heading-secondary {
-   color: #0b3256;
+   color: inherit;
    margin-bottom: 3.2rem;
 }
 
@@ -819,6 +841,35 @@ h2 {
    grid-template-columns: 1fr 1fr;
    column-gap: 3.2rem;
    row-gap: 2.4rem;
+}
+
+.cta-form label {
+   display: block;
+   font-size: 1.6rem;
+   font-weight: 500;
+   margin-bottom: 1.2rem;
+}
+
+.cta-form input,
+.cta-form select {
+   width: 100%;
+   padding: 1.2rem;
+   font-size: 1.8rem;
+   font-family: inherit;
+   color: inherit;
+   border: none;
+   background-color: #e8f2fb;
+   border-radius: 9px;
+   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.cta-form input::placeholder {
+   color: rgba(11, 50, 86, 0.5);
+}
+
+.cta-form *:focus {
+   outline: none;
+   box-shadow: 0 0 0 0.8rem rgba(232, 242, 251, 0.5);
 }
 
 .cta-img-box {
