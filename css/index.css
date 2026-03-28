@@ -616,6 +616,7 @@ h2 {
    border-top: 42px solid #082640;
    display: grid;
    grid-template-columns: 60fr 40fr;
+   background-color: #d2e5f7;
    align-items: center;
 }
 
