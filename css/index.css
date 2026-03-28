@@ -80,6 +80,15 @@ h2 {
 .grid {
    display: grid;
    gap: 9.6rem;
+   /* margin-bottom: 9.6rem; */
+}
+
+/* .grid:last-child {
+   margin-bottom: 0;
+} */
+
+.grid:not(:last-child) {
+   margin-bottom: 9.6rem;
 }
 
 .grid--center-v {
@@ -95,8 +104,20 @@ h2 {
    grid-template-columns: repeat(3, 1fr);
 }
 
-.grid--3-cols:nth-child(2) {
+/* .grid--3-cols:nth-child(2) {
    grid-template-columns: repeat(3, 1fr);
+} */
+
+.grid--4-cols {
+   grid-template-columns: repeat(4, 1fr);
+}
+
+.grid--3-cols {
+   grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--pricing {
+   gap: 6.2rem;
 }
 
 .heading-primary {
@@ -348,6 +369,7 @@ h2 {
    font-size: 1.8rem;
    font-weight: 600;
    color: #1c7ed6;
+   text-transform: uppercase;
    margin-bottom: 2.4rem;
 }
 
@@ -658,6 +680,39 @@ h2 {
    margin-bottom: 3.2rem;
 }
 
+.starter-pricing {
+   border-radius: 12px;
+   width: 80%;
+}
+
+.starter-pricing--starter {
+   justify-self: end;
+   padding: 4.6rem;
+   border: 3px solid #d2e5f7;
+}
+
+.starter-pricing--pro {
+   padding: 4.8rem;
+   background-color: #d2e5f7;
+   position: relative;
+   overflow: hidden;
+}
+
+.starter-pricing--pro::after {
+   content: "BEST VALUE";
+   position: absolute;
+   top: 6%;
+   right: -17%;
+
+   text-transform: uppercase;
+   font-size: 1.4rem;
+   font-weight: 700;
+   color: #333;
+   background-color: #ffd43f;
+   transform: rotate(45deg);
+   padding: 0.8rem 8rem;
+}
+
 .starter-price {
    font-size: 6.2rem;
    font-weight: 600;
@@ -675,6 +730,15 @@ h2 {
    font-size: 1.6rem;
    line-height: 1.6;
    color: #6f6f6f;
+}
+
+.list--pricing .list-item {
+   font-size: 1.6rem;
+   font-weight: 400;
+   display: flex;
+   align-items: center;
+   gap: 1rem;
+   color: #555;
 }
 
 .plan-sign-up {
