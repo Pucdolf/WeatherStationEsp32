@@ -53,6 +53,10 @@ body {
    font-weight: 400;
 }
 
+h2 {
+   font-size: 44px;
+}
+
 /**************************/
 /*GENERAL REUSABLE COMPONENTS*/
 /**************************/
@@ -632,19 +636,55 @@ body {
 .gallery-item img:hover {
    transform: scale(1.05);
 }
+/**************************/
+/*PRICING SECTION*/
+/**************************/
+
+.section-pricing {
+   border-top: 42px solid #082640;
+   padding: 6.2rem 0;
+}
+
+.starter-header {
+   text-align: center;
+   margin-bottom: 4.8rem;
+}
+.starter-name {
+   color: #1c7ed6;
+   font-weight: 600;
+   font-size: 2rem;
+   text-transform: uppercase;
+   letter-spacing: 0.75;
+   margin-bottom: 3.2rem;
+}
+
+.starter-price {
+   font-size: 6.2rem;
+   font-weight: 600;
+   color: #333;
+   margin-bottom: 1.6rem;
+}
+
+.starter-price span {
+   font-size: 3rem;
+   font-weight: 500;
+   margin-right: 0.8rem;
+}
+
+.starter-text {
+   font-size: 1.6rem;
+   line-height: 1.6;
+   color: #6f6f6f;
+}
+
+.plan-sign-up {
+   text-align: center;
+   margin-top: 4.8rem;
+}
 
 /**************************/
 /*SECTION*/
 /**************************/
-h2 {
-   font-size: 44px;
-}
-
-.random-section {
-   /* background-color: aquamarine; */
-   padding: 96px;
-   border-top: 42px solid #082640;
-}
 
 /* .section-powered {
    background-color: red;
