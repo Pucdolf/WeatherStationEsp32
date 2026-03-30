@@ -80,3 +80,91 @@
       font-size: 1.4rem;
    }
 }
+
+/**************************/
+/* BELOW 990px (TABLETS)*/
+/**************************/
+@media (max-width: 62em) {
+   html {
+      font-size: 45%;
+   }
+
+   .heading-secondary {
+      font-size: 2.4rem;
+   }
+
+   .heading-tertiary {
+      font-size: 1.8rem;
+   }
+
+   .grid {
+      gap: 7.2rem;
+   }
+
+   .header {
+      padding: 0 3.2rem;
+   }
+
+   .grid-footer {
+      gap: 6.2rem;
+   }
+
+   .grid--4-cols {
+      gap: 5.2rem;
+   }
+
+   .grid--4-cols {
+      gap: 5.2rem;
+   }
+
+   .grid--pricing {
+      gap: 2.2rem;
+   }
+
+   .header-container-inner {
+      width: 55%;
+   }
+
+   .header-container {
+      padding: 3.2rem 3.2rem;
+   }
+
+   .main-nav-list {
+      gap: 2.4rem;
+   }
+
+   .feature-title {
+      font-size: 1.8rem;
+   }
+
+   .feature-text {
+      font-size: 1.1rem;
+   }
+
+   .enthusiasts-tracking {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2.4rem;
+   }
+
+   .footer-link:link,
+   .footer-link:visited {
+      font-size: 1.4rem;
+   }
+
+   .section-testimonials {
+      grid-template-columns: 1fr;
+   }
+
+   .gallery {
+      grid-template-columns: repeat(6, 1fr);
+   }
+
+   .cta {
+      grid-template-columns: 68fr 32fr;
+   }
+
+   .cta-form {
+      /* grid-template-columns: 1fr; */
+   }
+}
