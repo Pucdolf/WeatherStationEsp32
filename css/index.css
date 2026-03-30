@@ -275,6 +275,25 @@ h2 {
    /* outline: 4px solid #1c7ed6;*/ /* nie wplywa na rozmiar buttona, rysowana nad*/
    box-shadow: inset 0 0 0 2px #1c7ed6;
 }
+
+/* MOBILE */
+.btn-mobile-nav {
+   border: none;
+   background: none;
+   cursor: pointer;
+   display: none;
+}
+
+.icon-mobile-nav {
+   height: 4.2rem;
+   width: 4.2rem;
+   color: #1c7ed6;
+}
+
+.icon-mobile-nav[name="close-outline"] {
+   display: none;
+}
+
 /**************************/
 /* HERO SECTION*/
 /**************************/
