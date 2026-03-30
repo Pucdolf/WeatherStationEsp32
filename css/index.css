@@ -382,7 +382,7 @@ h2 {
 .section-powered {
    margin-top: 0.5px;
    padding: 1.2rem 0 1.2rem 0;
-   border-top: 5px solid #082640;
+   /* border-top: 5px solid #082640; */
    border-bottom: 5px solid #082640;
 }
 .heading-powered-by {
@@ -843,7 +843,6 @@ h2 {
    box-shadow: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.15);
    border-radius: 12px;
    background-image: linear-gradient(to right bottom, #77b2e6, #1c7ed6);
-   height: 50rem;
    overflow: hidden;
 }
 

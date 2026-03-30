@@ -269,4 +269,64 @@
       grid-row: 1;
       grid-column: span 2;
    }
+
+   .cta-text {
+      font-size: 1.6rem;
+   }
+
+   .heading-secondary {
+      font-size: 3.2rem;
+   }
+
+   .cta-form {
+      grid-template-columns: 1fr;
+   }
+
+   .cta .btn--form {
+      grid-column: 1/-1;
+      margin-top: 1.2;
+   }
+}
+
+/**************************/
+/* BELOW 544px (PHONES)*/
+/**************************/
+
+@media (max-width: 34em) {
+   /* .logos img {
+      height: 2.4rem;
+   } */
+
+   html {
+      font-size: 40%;
+   }
+
+   .grid {
+      row-gap: 4.8rem;
+   }
+
+   .header-container {
+      top: 40%;
+   }
+
+   .grid--2-cols,
+   .grid--3-cols,
+   .grid--4-cols {
+      grid-template-columns: 1fr;
+   }
+
+   .section-hero {
+      padding: 2.4rem 3.2rem 4.8rem 3.2rem;
+   }
+
+   .hero-background,
+   .section-hero {
+      background-position: right;
+      height: 65vh;
+      min-height: 100%;
+   }
+
+   .margin-right-sm {
+      margin-bottom: 1.6rem;
+   }
 }
