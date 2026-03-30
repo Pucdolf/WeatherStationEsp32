@@ -165,8 +165,11 @@
       grid-template-columns: 68fr 32fr;
    }
 
+   /* MOBILE NAVIGATION */
+
    .btn-mobile-nav {
       display: block;
+      z-index: 1;
    }
 
    .main-nav {
@@ -178,9 +181,42 @@
       height: 100vh;
       z-index: 1;
 
+      transform: translate(100%);
+
       display: flex;
       align-items: center;
       justify-content: center;
+
+      transition: all 0.5s ease-in;
+
+      /* Hide navigation */
+      /* Allows NO transistions at all  */
+      /* display: none; */
+
+      /* 1) Hide the element visually */
+      opacity: 0;
+
+      /* 2) Hide the element from keyboard and mouse */
+      pointer-events: none;
+
+      /* 3) Hide the element from screenreaders */
+      visibility: hidden;
+   }
+
+   .nav-open .main-nav {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+      transform: translate(0);
+   }
+
+   .nav-open .icon-mobile-nav[name="close-outline"] {
+      display: block;
+      z-index: 1;
+   }
+
+   .nav-open .icon-mobile-nav[name="menu-outline"] {
+      display: none;
    }
 
    .main-nav-list {
