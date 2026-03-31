@@ -169,7 +169,8 @@
    }
 
    .main-nav {
-      background-color: rgba(8, 38, 64, 0.95);
+      background-color: rgba(8, 38, 64, 0.8);
+      backdrop-filter: blur(5px);
       position: absolute;
       top: 0;
       left: 0;
@@ -312,8 +313,7 @@
 
    .grid--2-cols,
    .grid--3-cols,
-   .grid--4-cols,
-   .grid--footer {
+   .grid--4-cols {
       grid-template-columns: 1fr;
    }
 
@@ -324,7 +324,7 @@
    .hero-background,
    .section-hero {
       background-position: right;
-      height: 70vh;
+      height: 100vh;
       min-height: 100%;
    }
 
@@ -367,3 +367,7 @@
       grid-row: 1;
    }
 }
+
+/**************************/
+/* Fixing Safari flexbox gap*/
+/**************************/
