@@ -255,7 +255,7 @@ h2 {
    font-size: 1.8rem;
    font-weight: 500;
 
-   transition: all 0.3;
+   transition: all 0.3s;
 }
 
 .main-nav-link:hover,
@@ -287,9 +287,8 @@ h2 {
 .sticky-nav .header {
    position: fixed;
    top: 0;
-   bottom: 0;
    width: 100%;
-   height: 6 rem;
+   height: 6.2rem;
    padding-top: 0;
    padding-bottom: 0;
    background-color: rgba(8, 38, 64, 0.95);

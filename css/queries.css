@@ -324,8 +324,7 @@
    .hero-background,
    .section-hero {
       background-position: right;
-      height: 100vh;
-      min-height: 100%;
+      min-height: 100vh;
    }
 
    .margin-right-sm {

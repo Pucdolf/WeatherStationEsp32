@@ -76,7 +76,7 @@ const observer = new IntersectionObserver(
       //  null = viewport
       root: null,
       threshold: 0,
-      rootMargin: "-60px", //height of sticky nav
+      rootMargin: "-62px",
    },
 );
 observer.observe(sectionHeroEl);
