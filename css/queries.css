@@ -44,7 +44,7 @@
       gap: 8.2rem;
    }
 
-   .grid-footer {
+   .grid--footer {
       gap: 7.2rem;
    }
 
@@ -101,7 +101,7 @@
       padding: 0 3.2rem;
    }
 
-   .grid-footer {
+   .grid--footer {
       gap: 6.2rem;
    }
 
@@ -263,6 +263,7 @@
    .logo-col,
    .address-col {
       grid-column: span 3;
+      grid-row: 2;
    }
 
    .nav-col {
@@ -306,12 +307,13 @@
    }
 
    .header-container {
-      top: 40%;
+      top: 50%;
    }
 
    .grid--2-cols,
    .grid--3-cols,
-   .grid--4-cols {
+   .grid--4-cols,
+   .grid--footer {
       grid-template-columns: 1fr;
    }
 
@@ -322,11 +324,46 @@
    .hero-background,
    .section-hero {
       background-position: right;
-      height: 65vh;
+      height: 70vh;
       min-height: 100%;
    }
 
    .margin-right-sm {
       margin-bottom: 1.6rem;
+   }
+
+   .how-img-box {
+      margin: 9.8rem 0;
+      transform: translateY(2.4rem);
+   }
+
+   .how-img-box:nth-child(2) {
+      grid-row: 1;
+   }
+
+   .how-img-box:nth-child(6) {
+      grid-row: 5;
+   }
+
+   .testimonials {
+      grid-template-columns: 1fr;
+   }
+
+   .gallery {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.2rem;
+   }
+
+   .cta {
+      grid-template-columns: 1fr;
+   }
+
+   .cta-text-box {
+      padding: 3.2rem 4.2rem 4.2rem 5.2rem;
+   }
+
+   .cta-img-box {
+      height: 32rem;
+      grid-row: 1;
    }
 }

@@ -206,7 +206,6 @@ h2 {
 .logo {
    height: 3.2rem;
    align-self: center;
-   transform: translate(-50%, 50);
    cursor: pointer;
 }
 
