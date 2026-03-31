@@ -165,7 +165,7 @@
 
    .btn-mobile-nav {
       display: block;
-      z-index: 1;
+      z-index: 1000;
    }
 
    .main-nav {
