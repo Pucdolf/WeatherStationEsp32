@@ -3,13 +3,33 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
       <link rel="stylesheet" href="css/index.css" />
+      <link rel="stylesheet" href="css/queries.css" />
+
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link
          href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
          rel="stylesheet"
       />
+
+      <script
+         type="module"
+         src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+      ></script>
+      <script
+         nomodule
+         src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+      ></script>
+
+      <script defer src="js/script.js"></script>
+
+      <script
+         defer
+         src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
+      ></script>
+
       <title>Weather Station32</title>
    </head>
 
@@ -18,6 +38,7 @@
       <div class="hero-background">
          <!-- <div>LOGO</div>
             <div>NAVIGATION</div> -->
+         <!-- <header class="header nav-open"> -->
          <header class="header">
             <a href="#">
                <img
@@ -28,15 +49,28 @@
             </a>
             <nav class="main-nav">
                <ul class="main-nav-list">
-                  <li><a class="main-nav-link" href="#">How it works</a></li>
-                  <li><a class="main-nav-link" href="#">Technologies</a></li>
-                  <li><a class="main-nav-link" href="#">Testimonials</a></li>
-                  <li><a class="main-nav-link" href="#">Pricing</a></li>
+                  <li><a class="main-nav-link" href="#how">How it works</a></li>
+                  <li>
+                     <a class="main-nav-link" href="#tech">Technologies</a>
+                  </li>
+                  <li>
+                     <a class="main-nav-link" href="#testimonials"
+                        >Testimonials</a
+                     >
+                  </li>
+                  <li><a class="main-nav-link" href="#pricing">Pricing</a></li>
                   <li>
                      <a class="main-nav-link nav-cta" href="#">Log in</a>
                   </li>
                </ul>
             </nav>
+            <button class="btn-mobile-nav">
+               <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+               <ion-icon
+                  class="icon-mobile-nav"
+                  name="close-outline"
+               ></ion-icon>
+            </button>
          </header>
 
          <section class="section-hero">
@@ -52,10 +86,10 @@
                         a scalable .NET backend. Real-time telemetry captured by
                         ESP32 and persisted in a Dockerized SQL environment.
                      </p>
-                     <a href="#" class="btn btn--full margin-right-sm"
+                     <a href="#cta" class="btn btn--full margin-right-sm"
                         >Start the Journey</a
                      >
-                     <a href="#" class="btn btn--outline margin-right-sm"
+                     <a href="#how" class="btn btn--outline margin-right-sm"
                         >Learn more &darr;</a
                      >
 
@@ -110,7 +144,7 @@
          </div>
       </section>
 
-      <section class="section-how">
+      <section class="section-how" id="how">
          <div class="container">
             <span class="subheading">How does it work?</span>
             <h2 class="heading-secondary">Random heading random heading</h2>
@@ -175,7 +209,7 @@
          </div>
       </section>
 
-      <section class="section-tech">
+      <section class="section-tech" id="tech">
          <div class="container center-text">
             <span class="subheading">Technologies</span>
             <h2 class="heading-tech">Capture real-time environmental data</h2>
@@ -334,7 +368,7 @@
          </div>
       </section>
 
-      <section class="section-testimonials">
+      <section class="section-testimonials" id="testimonials">
          <div class="testimonials-container">
             <span class="subheading">Testimonials</span>
             <h3 class="heading-tertiary">
@@ -515,7 +549,7 @@
          </div>
       </section>
 
-      <section class="section-pricing">
+      <section class="section-pricing" id="pricing">
          <div class="container">
             <span class="subheading">Pricing</span>
             <h2 class="heading-secondary">Build your own Weather32 station</h2>
@@ -661,7 +695,7 @@
          </div>
       </section>
 
-      <section class="section-cta">
+      <section class="section-cta" id="cta">
          <div class="container">
             <div class="cta">
                <div class="cta-text-box">
@@ -763,7 +797,8 @@
                </ul>
 
                <p class="copyright">
-                  Copyright &copy; 2030 by Weather32, Inc. All rights reserved.
+                  Copyright &copy; <span class="year">2030</span> by Weather32,
+                  Inc. All rights reserved.
                </p>
             </div>
 
@@ -815,13 +850,5 @@
             </nav>
          </div>
       </footer>
-      <script
-         type="module"
-         src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-      ></script>
-      <script
-         nomodule
-         src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-      ></script>
    </body>
 </html>
