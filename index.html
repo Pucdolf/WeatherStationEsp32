@@ -25,6 +25,11 @@
 
       <script defer src="js/script.js"></script>
 
+      <script
+         defer
+         src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
+      ></script>
+
       <title>Weather Station32</title>
    </head>
 
@@ -44,10 +49,16 @@
             </a>
             <nav class="main-nav">
                <ul class="main-nav-list">
-                  <li><a class="main-nav-link" href="#">How it works</a></li>
-                  <li><a class="main-nav-link" href="#">Technologies</a></li>
-                  <li><a class="main-nav-link" href="#">Testimonials</a></li>
-                  <li><a class="main-nav-link" href="#">Pricing</a></li>
+                  <li><a class="main-nav-link" href="#how">How it works</a></li>
+                  <li>
+                     <a class="main-nav-link" href="#tech">Technologies</a>
+                  </li>
+                  <li>
+                     <a class="main-nav-link" href="#testimonials"
+                        >Testimonials</a
+                     >
+                  </li>
+                  <li><a class="main-nav-link" href="#pricing">Pricing</a></li>
                   <li>
                      <a class="main-nav-link nav-cta" href="#">Log in</a>
                   </li>
@@ -75,10 +86,10 @@
                         a scalable .NET backend. Real-time telemetry captured by
                         ESP32 and persisted in a Dockerized SQL environment.
                      </p>
-                     <a href="#" class="btn btn--full margin-right-sm"
+                     <a href="#cta" class="btn btn--full margin-right-sm"
                         >Start the Journey</a
                      >
-                     <a href="#" class="btn btn--outline margin-right-sm"
+                     <a href="#how" class="btn btn--outline margin-right-sm"
                         >Learn more &darr;</a
                      >
 
@@ -133,7 +144,7 @@
          </div>
       </section>
 
-      <section class="section-how">
+      <section class="section-how" id="how">
          <div class="container">
             <span class="subheading">How does it work?</span>
             <h2 class="heading-secondary">Random heading random heading</h2>
@@ -198,7 +209,7 @@
          </div>
       </section>
 
-      <section class="section-tech">
+      <section class="section-tech" id="tech">
          <div class="container center-text">
             <span class="subheading">Technologies</span>
             <h2 class="heading-tech">Capture real-time environmental data</h2>
@@ -357,7 +368,7 @@
          </div>
       </section>
 
-      <section class="section-testimonials">
+      <section class="section-testimonials" id="testimonials">
          <div class="testimonials-container">
             <span class="subheading">Testimonials</span>
             <h3 class="heading-tertiary">
@@ -538,7 +549,7 @@
          </div>
       </section>
 
-      <section class="section-pricing">
+      <section class="section-pricing" id="pricing">
          <div class="container">
             <span class="subheading">Pricing</span>
             <h2 class="heading-secondary">Build your own Weather32 station</h2>
@@ -684,7 +695,7 @@
          </div>
       </section>
 
-      <section class="section-cta">
+      <section class="section-cta" id="cta">
          <div class="container">
             <div class="cta">
                <div class="cta-text-box">
