@@ -8,35 +8,42 @@ ADDRESS:weather32.dev
 
 - Font weights
 Default: 400
-
-- Line weights
-Default: 400
 Medium: 500
 Semi-bold: 600
 Bold: 700
 
--Line heights
+- Line heights
 Default: 1
 Small: 1.05
 Paragraph default: 1.6
 
 --- 02 COLORS
 - Primary: #1c7ed6
-- Tints: #1665ab
-- Shades:
-- Accents:
+- Tints: #1665ab / #4998de / #77b2e6 / #d2e5f7 / #e8f2fb
+- Shades: #114c80 / #0b3256 / #082640
+- Accents: #ffd43f
 - Greys:
+#333
+#444
+#555
+#6f6f6f
 #ced4da
 #fff
 
 --- 05 SHADOWS
+- Focus: 0 0 0 0.8rem #bbd8f3
+- Sticky Navigation: 0 1.2rem 3.2rem rgba(0, 0, 0, 0.03)
+- Cards / CTA: 0 2.4rem 4.8rem rgba(0, 0, 0, 0.1)
+- Tech Hover: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.3)
 
 --- 06 BORDER RADIUS
 Default: 9px
+Large: 12px (1.2rem)
+Circle: 50%
 
 --- 07 WHITESPACE
 - Spacing System (px)
-2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 72 / 80 / 96 / 128
 */
 
 * {
