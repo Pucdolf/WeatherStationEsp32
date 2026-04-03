@@ -1,0 +1,16 @@
+dodac mediaqueries ponizej ok 360px
+zaczac robic strone logowania i rejestrowania
+zoptymalizowac zdjecia -> webp, resolution
+
+for wep support
+<picture>
+  <source srcset="img/hero.webp"
+  type="image/webp />
+
+  <source srcset="img/hero-min.png"
+  type="image/png" />
+
+  <img src="img/hero.webp" 
+  class="hero-img"
+  alt="Woman...">
+</picture>
