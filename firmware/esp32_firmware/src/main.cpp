@@ -20,7 +20,8 @@ const int ledGreen = 27;
 
 
 // put function declarations here:
-int myFunction(int, int);
+float calcFahrenheit(float celsius);
+float calcKelvin(float celcius);
 
 void setup() {
   // put your setup code here, to run once:
@@ -50,14 +51,28 @@ void loop() {
   Serial.print("\n-----------DHT11------------\n");
   Serial.print("Wilgotnosc: ");
   Serial.print(hDHT);
-  Serial.print(" %\tTemperatura: ");
+  Serial.print("%\nTemperatura: ");
   Serial.print(tDHT);
-  Serial.println(" *C");
+  Serial.print(" *C");
+  Serial.print("\nTemperatura: ");
+  Serial.print(calcFahrenheit(tDHT));
+  Serial.print(" *F");
+  Serial.print("\nTemperatura: ");
+  Serial.print(calcKelvin(tDHT));
+  Serial.print(" K");
+
 
   Serial.print("\n----------DS18B20----------\n");
   Serial.print("Temperatura: ");
   Serial.print(tDS);
-  Serial.println(" *C");
+  Serial.print(" *C");
+  Serial.print("\nTemperatura: ");
+  Serial.print(calcFahrenheit(tDS));
+  Serial.print(" *F");
+  Serial.print("\nTemperatura: ");
+  Serial.print(calcKelvin(tDS));
+  Serial.print(" K");
+
 
 
   if(isnan(hDHT) || isnan(tDHT) || tDS <= -100.0){
@@ -84,3 +99,11 @@ void loop() {
 // int myFunction(int x, int y) {
 //   return x + y;
 // }
+
+float calcFahrenheit(float celcius){
+  return(celcius * float(9/5) + 32.f);
+}
+
+float calcKelvin(float celcius){
+  return(celcius + 273.15f);
+}
