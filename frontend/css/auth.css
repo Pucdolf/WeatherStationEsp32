@@ -2,7 +2,7 @@ body {
    display: grid;
    grid-template-rows: auto 1fr;
    height: 100vh;
-   background-color: rgba(8, 38, 64, 0.8);
+   background-color: rgba(8, 38, 64, 0.9);
 }
 
 .header {
@@ -100,7 +100,13 @@ body {
 }
 
 .auth-img-box {
-   background-image: url(/frontend/img/cta.png);
+   background-image:
+      linear-gradient(
+         to right bottom,
+         rgba(119, 178, 230, 0.21),
+         rgba(28, 127, 214, 0.21)
+      ),
+      url(/frontend/img/cta.png);
    background-position: center;
    background-size: cover;
 }
