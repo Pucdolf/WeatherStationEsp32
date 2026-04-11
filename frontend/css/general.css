@@ -241,3 +241,14 @@ body {
    height: 2.4rem;
    color: #1c7ed6;
 }
+
+.logo {
+   height: 3.2rem;
+   align-self: center;
+   cursor: pointer;
+}
+
+.logo:hover {
+   transform: scale(1.1);
+   transition: ease 1.5s;
+}
