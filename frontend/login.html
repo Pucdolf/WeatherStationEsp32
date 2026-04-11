@@ -3,9 +3,75 @@
    <head>
       <meta charset="UTF-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <link rel="stylesheet" href="css/general.css" />
+      <link rel="stylesheet" href="css/auth.css" />
+      <link rel="stylesheet" href="css/queries.css" />
+
+      <link rel="icon" href="img/favicons/favicon.png" />
+      <link rel="apple-touch-icon" href="img/favicons/apple-touch-icon.png" />
+      <link rel="manifest" href="manifest.webmanifest" />
+
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+      <link
+         href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+         rel="stylesheet"
+      />
       <title>Log in &mdash; Weather32</title>
    </head>
    <body>
-      <h1>HELLO WORLD</h1>
+      <header class="header">
+         <a href="index.html">
+            <img
+               class="logo"
+               alt="Weather32 logo"
+               src="img/weather32-logo.png"
+            />
+         </a>
+      </header>
+      <div class="container">
+         <div class="auth">
+            <div class="auth-text-box">
+               <h2 class="heading-secondary">Welcome back!</h2>
+               <p class="auth-text">Ready to check your local weather?</p>
+               <form class="auth-form" action="#">
+                  <div>
+                     <label for="email">Email address</label>
+                     <input
+                        id="email"
+                        type="email"
+                        placeholder="me@example.com"
+                        required
+                     />
+                  </div>
+                  <div>
+                     <label for="password">Password</label>
+                     <input
+                        id="password"
+                        type="password"
+                        placeholder="••••••••"
+                        required
+                     />
+                  </div>
+                  <a class="auth-link password-link" href="#"
+                     >Forgot your password?</a
+                  >
+                  <button class="btn btn--form">Log in</button>
+                  <div class="auth-action-box">
+                     <span>Need an account?</span>
+                     <a class="auth-link register-link" href="register.html"
+                        >Register</a
+                     >
+                  </div>
+               </form>
+            </div>
+            <div
+               class="auth-img-box"
+               role="img"
+               aria-label="Picture of ESP32 microcontroller on breadboard"
+            ></div>
+         </div>
+      </div>
    </body>
 </html>

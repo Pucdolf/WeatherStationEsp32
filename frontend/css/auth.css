@@ -1,0 +1,106 @@
+body {
+   display: grid;
+   grid-template-rows: auto 1fr;
+   height: 100vh;
+   background-color: rgba(8, 38, 64, 0.8);
+}
+
+.header {
+   display: flex;
+   align-items: center;
+   height: 6.2rem;
+   padding: 0 4.8rem;
+}
+
+.logo {
+   height: 3.2rem;
+   align-self: center;
+   cursor: pointer;
+}
+
+.container {
+   align-self: center;
+}
+
+.auth {
+   align-self: center;
+   display: grid;
+   box-shadow: 0 0 40rem 0.001rem #d2e5f7;
+   grid-template-columns: 60fr 40fr;
+   justify-content: center;
+   background-image: linear-gradient(to right bottom, #77b2e6, #1c7ed6);
+   border-radius: 9px;
+   overflow: hidden;
+}
+
+.auth--register {
+   grid-template-columns: 65fr 35fr;
+}
+
+.auth-text-box {
+   align-self: center;
+   justify-self: center;
+   margin: 4.8rem 12.8rem 6.4rem 12.8rem;
+   color: #0b3256;
+}
+
+.auth .heading-secondary {
+   text-align: center;
+   color: inherit;
+   margin-bottom: 2.4rem;
+}
+
+.auth .auth-text {
+   margin-bottom: 3.2rem;
+   text-align: center;
+   font-size: 1.6rem;
+}
+
+.auth-form {
+   display: grid;
+   grid-template-columns: 1fr;
+   gap: 2.4rem;
+}
+
+.auth-form label {
+   display: block;
+   font-size: 1.6rem;
+   font-weight: 500;
+   margin-bottom: 1.2rem;
+}
+
+.auth-form input {
+   width: 100%;
+   padding: 1.2rem;
+   font-size: 1.8rem;
+   font-family: inherit;
+   color: inherit;
+   border: none;
+   background-color: #e8f2fb;
+   border-radius: 9px;
+   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.auth-link:link,
+.auth-link:visited {
+   display: inline-block;
+   font-size: 1.4rem;
+   color: #0b3256;
+   transition: all 1s;
+}
+
+.auth-link:hover,
+.auth-link:active {
+   font-size: 1.4rem;
+   color: #e8f2fb;
+}
+
+.auth-action-box span {
+   font-size: 1.4rem;
+}
+
+.auth-img-box {
+   background-image: url(/frontend/img/cta.png);
+   background-position: center;
+   background-size: cover;
+}

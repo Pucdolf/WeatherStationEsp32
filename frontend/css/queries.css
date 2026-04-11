@@ -365,6 +365,19 @@
       height: 32rem;
       grid-row: 1;
    }
+
+   .auth {
+      grid-template-columns: 1fr;
+   }
+
+   .auth-img-box {
+      height: 32rem;
+      grid-row: 1;
+   }
+
+   .header {
+      margin-bottom: 4.2rem;
+   }
 }
 
 /**************************/
