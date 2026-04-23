@@ -1,45 +1,52 @@
-# --- .NET CORE / C# ---
-**/[Bb]in/
-**/[Oo]bj/
+# --- .NET ---
+[Bb]in/
+[Oo]bj/
 *.user
 *.userosscache
 *.sln.doccache
+*.suo
+*.cache
+*.vshost.exe*
+*.vshost.exe.config
+*.vshost.exe.manifest
+*.manifest
 .vs/
-.vscode/
 
-# --- PLATFORMIO / ESP32 ---
-**/.pio/
-**/.vscode/
-.vscode/.browse.c_cpp.db*
-.vscode/c_cpp_properties.json
-.vscode/launch.json
-.vscode/ipch/
-
-# --- DOCKER ---
-.docker/
-# postgres data is handled by named volume, but if you used local path:
-# postgres_data/
-
-# --- WEB / FRONTEND ---
-.DS_Store
-Thumbs.db
-node_modules/
-.npm/
-
-# --- SYSTEM & EDITORS ---
+# --- Visual Studio Code ---
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.idea/
-*.swp
-*.bak
-*.tmp
-*.log
+*.code-workspace
 
-# --- PROJECT SPECIFIC ---
+# --- PlatformIO / ESP32 ---
+.pio/
+.pioenvs/
+.piolibdeps/
+.clang_complete
+.gcc-flags.json
+fp-info-cache
+
+# --- Docker ---
+.docker/
+
+# --- System & OS ---
+.DS_Store
+Thumbs.db
+
+# --- Frontend ---
+node_modules/
+.npm/
+dist/
+build/
+
+# --- Environment & Secrets ---
+*.env
+*.env.*
+appsettings.Local.json
+[Aa]ppsettings.Development.json
+
+# --- Project Specific ---
 old/
-# *.db
-# *.db-shm
-# *.db-wal
+docs/sample_data.txt
