@@ -1,6 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 using Weather32Api.Data;
+using Weather32Api.DTO;
+using Weather32Api.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,10 @@ builder.Services.AddDbContext<AppDbContext>(option =>
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+builder.Services.AddAutoMapper(o =>
+{
+    o.CreateMap<WeatherDataCreateDTO, WeatherData>();
+});
 
 var app = builder.Build();
 await SeedDataAsync(app);

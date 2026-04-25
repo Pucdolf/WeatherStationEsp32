@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Weather32Api.Data;
 using Weather32Api.DTO;
@@ -12,10 +13,12 @@ namespace Weather32Api.Controllers
     public class WeatherController : ControllerBase
     {
         private readonly AppDbContext _dbContext;
+        private readonly IMapper _mapper;
 
-        public WeatherController(AppDbContext dbContext)
+        public WeatherController(AppDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
+            _mapper = mapper;
         }
 
         //Endpoint
@@ -62,23 +65,25 @@ namespace Weather32Api.Controllers
                     return BadRequest("Weather data is required"); //400
                 }
 
-                WeatherData weatherData = new ()
-                {
-                    DhtTemperatureC = weatherDataDTO.DhtTemperatureC,
-                    DhtTemperatureF = weatherDataDTO.DhtTemperatureF,
-                    DhtTemperatureK = weatherDataDTO.DhtTemperatureK,
-                    Humidity = weatherDataDTO.Humidity,
+                //WeatherData weatherData = new ()
+                //{
+                //    DhtTemperatureC = weatherDataDTO.DhtTemperatureC,
+                //    DhtTemperatureF = weatherDataDTO.DhtTemperatureF,
+                //    DhtTemperatureK = weatherDataDTO.DhtTemperatureK,
+                //    Humidity = weatherDataDTO.Humidity,
 
-                    DsTemperatureC = weatherDataDTO.DsTemperatureC,
-                    DSTemperatureF = weatherDataDTO.DSTemperatureF,
-                    DSTemperatureK = weatherDataDTO.DSTemperatureK,
-                    TimeStamp = DateTime.UtcNow
-                };
+                //    DsTemperatureC = weatherDataDTO.DsTemperatureC,
+                //    DSTemperatureF = weatherDataDTO.DSTemperatureF,
+                //    DSTemperatureK = weatherDataDTO.DSTemperatureK,
+                //    TimeStamp = DateTime.UtcNow
+                //};
+
+                WeatherData weatherData = _mapper.Map<WeatherData>(weatherDataDTO);
 
                 await _dbContext.WeatherRecords.AddAsync(weatherData);
                 await _dbContext.SaveChangesAsync();
 
-                return Ok(weatherData); //200 
+                return CreatedAtAction(nameof(CreateWeatherData), new { id = weatherData.Id}, weatherData); //201 Created
             }
             catch (Exception e)
             {
