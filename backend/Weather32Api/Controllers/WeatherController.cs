@@ -92,6 +92,7 @@ namespace Weather32Api.Controllers
             }
         }
 
+        
         ////[HttpGet("{id:int}/{name}")] //Route
         //[HttpGet()] //Query
         ////public string GetWeatherDataById([FromRoute] int id, [FromRoute] string name) //Route
