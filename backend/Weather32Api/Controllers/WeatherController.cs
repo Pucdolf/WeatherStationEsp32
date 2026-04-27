@@ -62,7 +62,7 @@ namespace Weather32Api.Controllers
             {
                 if (weatherDataDTO == null)
                 {
-                    return BadRequest("Weather data is required"); //400
+                    return BadRequest("Weather data is required."); //400
                 }
 
                 //WeatherData weatherData = new ()

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Weather32Api.Data;
@@ -11,9 +12,11 @@ using Weather32Api.Data;
 namespace Weather32Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260427123349_SeedUsers")]
+    partial class SeedUsers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -41,9 +44,6 @@ namespace Weather32Api.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("timestamp with time zone");
-
                     b.Property<string>("Username")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -57,19 +57,17 @@ namespace Weather32Api.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2026, 4, 27, 13, 51, 59, 878, DateTimeKind.Utc).AddTicks(2852),
+                            CreatedAt = new DateTime(2026, 4, 27, 12, 33, 48, 474, DateTimeKind.Utc).AddTicks(3999),
                             Email = "pucdolf@example.com",
                             Password = "password",
-                            UpdatedAt = new DateTime(2026, 4, 27, 13, 51, 59, 878, DateTimeKind.Utc).AddTicks(3153),
                             Username = "Pucdolf"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedAt = new DateTime(2026, 4, 27, 13, 51, 59, 878, DateTimeKind.Utc).AddTicks(3434),
+                            CreatedAt = new DateTime(2026, 4, 27, 12, 33, 48, 474, DateTimeKind.Utc).AddTicks(4294),
                             Email = "pgkuba@example.com",
                             Password = "1234",
-                            UpdatedAt = new DateTime(2026, 4, 27, 13, 51, 59, 878, DateTimeKind.Utc).AddTicks(3434),
                             Username = "PGKuba"
                         });
                 });

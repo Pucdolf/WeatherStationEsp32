@@ -74,5 +74,29 @@ public class AppDbContext : DbContext
                 TimeStamp = new DateTime(2024, 3, 20, 7, 10, 45, DateTimeKind.Utc)
             }
         );
+
+        modelBuilder.Entity<User>().HasData(
+            new User
+            {
+                Id = 1,
+                Username = "Pucdolf",
+                Email = "pucdolf@example.com",
+                Password = "password",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+
+            },
+
+            new User
+            {
+                Id = 2,
+                Username = "PGKuba",
+                Email = "pgkuba@example.com",
+                Password = "1234",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            }
+
+    );
     }
 }

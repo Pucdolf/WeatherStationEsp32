@@ -11,6 +11,8 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<AppDbContext>(option =>
 {
     option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultSQLConnection"));
+    option.ConfigureWarnings(w =>
+        w.Ignore(Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.PendingModelChangesWarning));
 });
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -18,6 +20,8 @@ builder.Services.AddOpenApi();
 builder.Services.AddAutoMapper(o =>
 {
     o.CreateMap<WeatherDataCreateDTO, WeatherData>();
+    o.CreateMap<UserCreateDTO, User>();
+    o.CreateMap<UserUpdateDTO, User>();
 });
 
 var app = builder.Build();
