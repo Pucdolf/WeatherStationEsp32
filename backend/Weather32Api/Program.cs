@@ -22,6 +22,7 @@ builder.Services.AddAutoMapper(o =>
     o.CreateMap<WeatherDataCreateDTO, WeatherData>();
     o.CreateMap<UserCreateDTO, User>();
     o.CreateMap<UserUpdateDTO, User>();
+    o.CreateMap<UserDTO, User>().ReverseMap();
 });
 
 var app = builder.Build();
