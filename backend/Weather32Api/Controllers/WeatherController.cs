@@ -23,46 +23,66 @@ namespace Weather32Api.Controllers
 
         //Endpoint
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<WeatherData>>> GetWeatherData()
+        [ProducesResponseType(typeof(ApiResponse<IEnumerable<WeatherDataDTO>>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
+        public async Task<ActionResult<ApiResponse<IEnumerable<WeatherDataDTO>>>> GetWeatherData()
         {
-            return Ok(await _dbContext.WeatherRecords.ToListAsync()); //200 ok
+            var weatherData = await _dbContext.WeatherRecords.ToListAsync();
+            var dtoResponseWeatherData = _mapper.Map<List<WeatherDataDTO>>(weatherData);
+            return Ok(ApiResponse<IEnumerable<WeatherDataDTO>>.Ok(dtoResponseWeatherData, "Weather data retrieved successfully."));
+
+            //return Ok(await _dbContext.WeatherRecords.ToListAsync()); //200 ok
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<WeatherData>> GetWeatherDataById([FromRoute] int id)
+        [ProducesResponseType(typeof(ApiResponse<WeatherDataDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
+
+        public async Task<ActionResult<ApiResponse<WeatherDataDTO>>> GetWeatherDataById([FromRoute] int id)
         {
             try
             {
                 if (id <= 0)
                 {
-                    return BadRequest("Weather data ID must be greater than 0."); //400
+                    return BadRequest(ApiResponse<object>.BadRequest("Weather data ID must be greater than 0."));
+                    //return BadRequest("Weather data ID must be greater than 0."); //400
                 }
 
                 var weatherData = await _dbContext.WeatherRecords.FirstOrDefaultAsync(u => u.Id == id);
 
                 if (weatherData == null)
                 {
-                    return NotFound($"Weather data with ID {id} was not found."); //404
+                    return NotFound(ApiResponse<object>.NotFound($"Weather data with ID {id} was not found."));
+                    //return NotFound($"Weather data with ID {id} was not found."); //404
                 }
 
-                return Ok(weatherData); //200 
+                return Ok(ApiResponse<WeatherDataDTO>.Ok(_mapper.Map<WeatherDataDTO>(weatherData),
+                    "Records were retrieved successfully.")); //200 
             }
             catch (Exception e)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError,
-                    $"An error occured while retrieving weather data with id {id}: {e.Message}."); //500
+                var errorResponse = ApiResponse<object>.Error(500,
+                    $"An error occured while retrieving weather data with id {id}: ", e.Message);
+                return StatusCode(500, errorResponse); //500
             }
         }
 
 
         [HttpPost]
-        public async Task<ActionResult<WeatherData>> CreateWeatherData(WeatherDataCreateDTO weatherDataDTO)
+        [ProducesResponseType(typeof(ApiResponse<WeatherDataDTO>), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status409Conflict)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
+
+        public async Task<ActionResult<ApiResponse<WeatherDataDTO>>> CreateWeatherData(WeatherDataCreateDTO weatherDataDTO)
         {
             try
             {
                 if (weatherDataDTO == null)
                 {
-                    return BadRequest("Weather data is required."); //400
+                    return BadRequest(ApiResponse<object>.BadRequest("Weather data is required."));
+                    //return BadRequest("Weather data is required."); //400
                 }
 
                 //WeatherData weatherData = new ()
@@ -79,20 +99,25 @@ namespace Weather32Api.Controllers
                 //};
 
                 WeatherData weatherData = _mapper.Map<WeatherData>(weatherDataDTO);
+                weatherData.TimeStamp = DateTime.UtcNow;
 
                 await _dbContext.WeatherRecords.AddAsync(weatherData);
                 await _dbContext.SaveChangesAsync();
 
-                return CreatedAtAction(nameof(CreateWeatherData), new { id = weatherData.Id}, weatherData); //201 Created
+
+                var response = ApiResponse<WeatherDataDTO>.CreatedAt(_mapper.Map<WeatherDataDTO>(weatherData),
+                    "User created successfully.");
+                return CreatedAtAction(nameof(CreateWeatherData), new { id = weatherData.Id }, response); //201 Created
             }
             catch (Exception e)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError,
-                    $"An error occured while creating weather data: {e.Message}."); //500
+                var errorResponse =
+                    ApiResponse<object>.Error(500, $"An error occured while creating weather data: ", e.Message);
+                return StatusCode(500, errorResponse); //500
             }
         }
 
-        
+
         ////[HttpGet("{id:int}/{name}")] //Route
         //[HttpGet()] //Query
         ////public string GetWeatherDataById([FromRoute] int id, [FromRoute] string name) //Route

@@ -186,7 +186,7 @@ namespace Weather32Api.Controllers
         }
 
         [HttpDelete("{id:int}")]
-        [ProducesResponseType(typeof(ApiResponse<UserDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
 
