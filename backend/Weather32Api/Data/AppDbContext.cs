@@ -82,6 +82,7 @@ public class AppDbContext : DbContext
                 Username = "Pucdolf",
                 Email = "pucdolf@example.com",
                 Password = "password",
+                Role = "Admin",
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow
 
@@ -93,6 +94,7 @@ public class AppDbContext : DbContext
                 Username = "PGKuba",
                 Email = "pgkuba@example.com",
                 Password = "1234",
+                Role = "User",
                 CreatedAt = DateTime.UtcNow,
                 UpdatedAt = DateTime.UtcNow
             }

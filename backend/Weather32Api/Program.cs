@@ -20,6 +20,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddAutoMapper(o =>
 {
     o.CreateMap<WeatherDataCreateDTO, WeatherData>();
+    o.CreateMap<WeatherDataDTO, WeatherData>().ReverseMap();
     o.CreateMap<UserCreateDTO, User>();
     o.CreateMap<UserUpdateDTO, User>();
     o.CreateMap<UserDTO, User>().ReverseMap();

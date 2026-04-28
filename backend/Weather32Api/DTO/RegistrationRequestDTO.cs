@@ -1,11 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Weather32Api.Models
+namespace Weather32Api.DTO
 {
-    public class User
+    public class RegistrationRequestDTO
     {
-        [Key]
-        public int Id { get; set; }
         [Required]
         [MaxLength(50)]
         public required string Username { get; set; }
@@ -14,13 +12,8 @@ namespace Weather32Api.Models
         public required string Email { get; set; }
         [Required]
         public required string Password { get; set; }
-
-        [Required]
         [MaxLength(50)]
-        public required string Role { get; set; } = "User";
-        public DateTime CreatedAt { get; set; }
-        public DateTime UpdatedAt { get; set; }
-
+        public string Role { get; set; } = "User";
 
     }
 }
