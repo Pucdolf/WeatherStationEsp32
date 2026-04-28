@@ -21,6 +21,8 @@ namespace Weather32Api.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(ApiResponse<IEnumerable<UserDTO>>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ApiResponse<IEnumerable<UserDTO>>>> GetUsers()
         {
             var users = await _dbContext.Users.ToListAsync();
@@ -30,6 +32,10 @@ namespace Weather32Api.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [ProducesResponseType(typeof(ApiResponse<UserDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
+
         public async Task<ActionResult<ApiResponse<UserDTO>>> GetUserById([FromRoute] int id)
         {
             try
@@ -58,7 +64,7 @@ namespace Weather32Api.Controllers
                 }
 
 
-                return Ok(ApiResponse<UserDTO>.Ok(user, "Records retrieved successfully."));
+                return Ok(ApiResponse<UserDTO>.Ok(_mapper.Map<UserDTO>(user), "Records retrieved successfully."));
                 //return new ApiResponse<UserDTO>()
                 //{
                 //    StatusCode = 400,
@@ -71,26 +77,36 @@ namespace Weather32Api.Controllers
             }
             catch (Exception e)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError,
-                    $"An error occured while retrieving user with ID {id}: {e.Message}.");
+                var errorResponse = ApiResponse<object>.Error(500, "An error occured while creating user: ", e.Message);
+                return StatusCode(500, errorResponse);
+                //return StatusCode(StatusCodes.Status500InternalServerError,
+                //    $"An error occured while retrieving user with ID {id}: {e.Message}.");
             }
         }
 
         [HttpPost]
-        public async Task<ActionResult<UserDTO>> CreateUser(UserCreateDTO userDTO)
+        [ProducesResponseType(typeof(ApiResponse<UserDTO>), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status409Conflict)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
+
+        public async Task<ActionResult<ApiResponse<UserDTO>>> CreateUser(UserCreateDTO userDTO)
         {
             try
             {
                 if (userDTO == null)
                 {
-                    return BadRequest("User data is required.");
+                    return BadRequest(ApiResponse<object>.BadRequest("User data is required."));
+                    //return BadRequest("User data is required.");
                 }
 
                 var duplicatedVilla = await _dbContext.Users.FirstOrDefaultAsync(u => u.Username.ToLower() == userDTO.Username.ToLower());
 
                 if (duplicatedVilla != null)
                 {
-                    return Conflict($"A user with username: {userDTO.Username} already exists.");
+                    return Conflict(
+                        ApiResponse<object>.Conflict($"A user with username: {userDTO.Username} already exists."));
+                    //return Conflict($"A user with username: {userDTO.Username} already exists.");
                 }
 
                 User user = _mapper.Map<User>(userDTO);
@@ -101,35 +117,46 @@ namespace Weather32Api.Controllers
                 await _dbContext.Users.AddAsync(user);
                 await _dbContext.SaveChangesAsync();
 
-                return CreatedAtAction(nameof(CreateUser), new { id = user.Id }, _mapper.Map<UserDTO>(user));
+                var response = ApiResponse<UserDTO>.CreatedAt(_mapper.Map<UserDTO>(user), "User created successfully.");
+                return CreatedAtAction(nameof(CreateUser), new { id = user.Id }, response);
             }
             catch (Exception e)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError,
-                    $"An error occured while creating user: {e.Message}.");
+                var errorResponse = ApiResponse<object>.Error(500, "An error occured while creating user: ", e.Message);
+                return StatusCode(500, errorResponse);
             }
         }
 
         [HttpPut("{id:int}")]
-        public async Task<ActionResult<UserUpdateDTO>> UpdateUser(int id, UserUpdateDTO userDTO)
+        [ProducesResponseType(typeof(ApiResponse<UserDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status409Conflict)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
+
+        public async Task<ActionResult<ApiResponse<UserDTO>>> UpdateUser(int id, UserUpdateDTO userDTO)
         {
             try
             {
                 if (userDTO == null)
                 {
-                    return BadRequest("User data is required.");
+                    return BadRequest(ApiResponse<object>.BadRequest("User data is required."));
+                    //return BadRequest("User data is required.");
                 }
 
                 if (id != userDTO.Id)
                 {
-                    return BadRequest("User ID in URL does not match User ID in request body.");
+                    return BadRequest(
+                        ApiResponse<object>.BadRequest("User ID in URl does not match User ID in request body."));
+                    //return BadRequest("User ID in URL does not match User ID in request body.");
                 }
 
                 var existingUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
 
                 if (existingUser == null)
                 {
-                    return NotFound($"User with ID {id} was not found.");
+                    return NotFound(ApiResponse<object>.NotFound($"User with ID {id} was not found."));
+                    //return NotFound($"User with ID {id} was not found.");
                 }
 
                 var duplicatedVilla =
@@ -137,43 +164,56 @@ namespace Weather32Api.Controllers
 
                 if (duplicatedVilla != null)
                 {
-                    return Conflict($"A user with username: {userDTO.Username} already exists.");
+                    return Conflict(
+                        ApiResponse<object>.Conflict($"A user with username: {userDTO.Username} already exists."));
+                    //return Conflict($"A user with username: {userDTO.Username} already exists.");
                 }
 
                 _mapper.Map(userDTO, existingUser);
                 existingUser.UpdatedAt = DateTime.UtcNow;
 
                 await _dbContext.SaveChangesAsync();
-                return Ok(userDTO);
+                var response = ApiResponse<UserDTO>.Ok(_mapper.Map<UserDTO>(userDTO), "User updated successfully.");
+                return Ok(response);
             }
             catch (Exception e)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError,
-                    $"An error occured while updating the user: {e.Message}");
+                var errorResponse = ApiResponse<object>.Error(500, "An error occured while creating user: ", e.Message);
+                return StatusCode(500, errorResponse);
+                //return StatusCode(StatusCodes.Status500InternalServerError,
+                //    $"An error occured while updating the user: {e.Message}");
             }
         }
 
         [HttpDelete("{id:int}")]
-        public async Task<ActionResult> DeleteUser(int id)
+        [ProducesResponseType(typeof(ApiResponse<UserDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
+
+        public async Task<ActionResult<ApiResponse<object>>> DeleteUser(int id)
         {
             try
             {
                 var existingUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
                 if (existingUser == null)
                 {
-                    return NotFound($"User with ID {id} was not found.");
+                    return NotFound(ApiResponse<object>.NotFound($"User with ID {id} was not found."));
+                    //return NotFound($"User with ID {id} was not found.");
                 }
 
                 _dbContext.Users.Remove(existingUser);
                 await _dbContext.SaveChangesAsync();
 
-                return NoContent();
+                var response = ApiResponse<object>.NoContent("Villa deleted succesfully.");
+                return Ok(response);
+                //return NoContent();
             }
             catch (Exception e)
             {
-                return StatusCode(StatusCodes.Status500InternalServerError,
-                    $"An error occured while deleting the user: {e.Message}");
-                throw;
+                var errorResponse =
+                    ApiResponse<object>.Error(500, "An error occured while deleting the user: ", e.Message);
+                return StatusCode(500, errorResponse);
+
             }
         }
     }

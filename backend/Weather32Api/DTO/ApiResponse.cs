@@ -26,10 +26,10 @@ namespace Weather32Api.DTO
         }
 
         public static ApiResponse<TData> Ok(TData data, string message) =>
-            Create(success: true, statusCode: 200 , message, data);
+            Create(success: true, statusCode: 200, message, data);
 
         public static ApiResponse<TData> CreatedAt(TData data, string message) =>
-            Create(success: true, statusCode: 201 , message, data);
+            Create(success: true, statusCode: 201, message, data);
 
         public static ApiResponse<TData> NoContent(string message = "Operation completed successfully.") =>
             Create(success: true, statusCode: 204, message);
@@ -43,7 +43,7 @@ namespace Weather32Api.DTO
         public static ApiResponse<TData> Conflict(string message) =>
             Create(success: false, statusCode: (int)HttpStatusCode.Conflict, message);
 
-        public static ApiResponse<TData> Error(string message, int statusCode, object? errors = null) =>
+        public static ApiResponse<TData> Error(int statusCode, string message, object? errors = null) =>
             Create(success: false, statusCode, message, errors: errors);
 
 

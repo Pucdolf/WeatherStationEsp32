@@ -23,6 +23,7 @@ builder.Services.AddAutoMapper(o =>
     o.CreateMap<UserCreateDTO, User>();
     o.CreateMap<UserUpdateDTO, User>();
     o.CreateMap<UserDTO, User>().ReverseMap();
+    o.CreateMap<UserDTO, UserUpdateDTO>();
 });
 
 var app = builder.Build();
