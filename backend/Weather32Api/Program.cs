@@ -3,6 +3,7 @@ using Scalar.AspNetCore;
 using Weather32Api.Data;
 using Weather32Api.DTO;
 using Weather32Api.Models;
+using Weather32Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +27,8 @@ builder.Services.AddAutoMapper(o =>
     o.CreateMap<UserDTO, User>().ReverseMap();
     o.CreateMap<UserDTO, UserUpdateDTO>();
 });
+
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 var app = builder.Build();
 await SeedDataAsync(app);
