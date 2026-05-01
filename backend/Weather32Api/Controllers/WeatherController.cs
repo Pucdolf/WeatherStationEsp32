@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Weather32Api.Data;
@@ -8,7 +9,7 @@ using Weather32Api.Models;
 namespace Weather32Api.Controllers
 {
     [Route("api/weatherdata")]
-    //[Route("api/[controller]")] //Adres to api/weather
+    //[Authorize(Roles = "Admin, User")]
     [ApiController]
     public class WeatherController : ControllerBase
     {
@@ -23,6 +24,7 @@ namespace Weather32Api.Controllers
 
         //Endpoint
         [HttpGet]
+        //[Authorize(Roles = "Admin")]
         [ProducesResponseType(typeof(ApiResponse<IEnumerable<WeatherDataDTO>>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ApiResponse<IEnumerable<WeatherDataDTO>>>> GetWeatherData()
