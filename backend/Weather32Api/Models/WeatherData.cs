@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Weather32Api.Models;
 
@@ -20,5 +21,11 @@ public class WeatherData
 
     [Required]
     public DateTime TimeStamp { get; set; } = DateTime.UtcNow;
+
+    [Required]
+    public int WeatherStationId { get; set; }
+
+    [ForeignKey("WeatherStationId")]
+    public WeatherStation WeatherStation { get; set; }
 
 }

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Weather32Api.Models
 {
@@ -20,6 +21,8 @@ namespace Weather32Api.Models
         public required string Role { get; set; } = "User";
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
+        
+        public ICollection<WeatherStation> WeatherStations { get; set; }
 
 
     }

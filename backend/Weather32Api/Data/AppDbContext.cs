@@ -6,6 +6,8 @@ namespace Weather32Api.Data;
 public class AppDbContext : DbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+    public DbSet<WeatherStation> WeatherStations { get; set; }
+    public DbSet<WeatherStationFeatures> WeatherStationFeatures { get; set; }
     public DbSet<WeatherData> WeatherRecords { get; set; }
     public DbSet<User> Users { get; set; }
 

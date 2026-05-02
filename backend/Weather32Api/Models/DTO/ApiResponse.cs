@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Reflection.Metadata.Ecma335;
 
-namespace Weather32Api.DTO
+namespace Weather32Api.Models.DTO
 {
     public class ApiResponse<TData>
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Weather32Api.DTO
+namespace Weather32Api.Models.DTO
 {
     public class UserCreateDTO
     {

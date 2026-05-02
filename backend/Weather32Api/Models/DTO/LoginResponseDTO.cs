@@ -1,4 +1,4 @@
-﻿namespace Weather32Api.DTO
+﻿namespace Weather32Api.Models.DTO
 {
     public class LoginResponseDTO
     {

@@ -1,4 +1,4 @@
-﻿using Weather32Api.DTO;
+﻿using Weather32Api.Models.DTO;
 
 namespace Weather32Api.Services
 {

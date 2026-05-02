@@ -5,8 +5,8 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 using Scalar.AspNetCore;
 using Weather32Api.Data;
-using Weather32Api.DTO;
 using Weather32Api.Models;
+using Weather32Api.Models.DTO;
 using Weather32Api.Services;
 
 var builder = WebApplication.CreateBuilder(args);

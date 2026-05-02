@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Weather32Api.Data;
-using Weather32Api.DTO;
 using Weather32Api.Models;
+using Weather32Api.Models.DTO;
 
 namespace Weather32Api.Controllers
 {

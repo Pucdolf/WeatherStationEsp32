@@ -5,8 +5,8 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Weather32Api.Data;
-using Weather32Api.DTO;
 using Weather32Api.Models;
+using Weather32Api.Models.DTO;
 
 namespace Weather32Api.Services;
 
