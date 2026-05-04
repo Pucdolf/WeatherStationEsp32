@@ -14,6 +14,54 @@ public class AppDbContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+
+        
+        modelBuilder.Entity<User>().HasData(
+            new User
+            {
+                Id = 1,
+                Username = "Pucdolf",
+                Email = "pucdolf@example.com",
+                Password = "password",
+                Role = "Admin",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new User
+            {
+                Id = 2,
+                Username = "PGKuba",
+                Email = "pgkuba@example.com",
+                Password = "1234",
+                Role = "User",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow,
+            }
+        );
+
+        modelBuilder.Entity<WeatherStation>().HasData(
+            new WeatherStation
+            {
+                Id = 1,
+                Name = "PucekStation",
+                Location = "Bielsko",
+                UserId = 1,
+            },
+            new WeatherStation
+            {
+                Id = 2,
+                Name = "PGKubaStation",
+                Location = "Rybki",
+                UserId = 2
+            }
+        );
+// 3. Seed WeatherStationFeatures
+modelBuilder.Entity<WeatherStationFeatures>().HasData(
+    new WeatherStationFeatures { Id = 1, WeatherStationId = 1, Name = "DHT11", Description = "Temperature and humidity sensor" },
+    new WeatherStationFeatures { Id = 2, WeatherStationId = 1, Name = "DS18B20", Description = "High-precision temperature sensor" },
+    new WeatherStationFeatures { Id = 3, WeatherStationId = 2, Name = "DHT11", Description = "Temperature and humidity sensor" }
+);
+
         modelBuilder.Entity<WeatherData>().HasData(
             new WeatherData
             {
@@ -25,7 +73,8 @@ public class AppDbContext : DbContext
                 DsTemperatureC = 23.8f,
                 DSTemperatureF = 74.8f,
                 DSTemperatureK = 296.9f,
-                TimeStamp = new DateTime(2024, 3, 18, 8, 30, 0, DateTimeKind.Utc)
+                TimeStamp = new DateTime(2024, 3, 18, 8, 30, 0, DateTimeKind.Utc),
+                WeatherStationId = 1
             },
             new WeatherData
             {
@@ -37,7 +86,8 @@ public class AppDbContext : DbContext
                 DsTemperatureC = 24.2f,
                 DSTemperatureF = 75.6f,
                 DSTemperatureK = 297.3f,
-                TimeStamp = new DateTime(2024, 3, 18, 12, 45, 12, DateTimeKind.Utc)
+                TimeStamp = new DateTime(2024, 3, 18, 12, 45, 12, DateTimeKind.Utc),
+                WeatherStationId = 1
             },
             new WeatherData
             {
@@ -49,7 +99,8 @@ public class AppDbContext : DbContext
                 DsTemperatureC = 24.0f,
                 DSTemperatureF = 75.2f,
                 DSTemperatureK = 297.1f,
-                TimeStamp = new DateTime(2024, 3, 19, 9, 15, 20, DateTimeKind.Utc)
+                TimeStamp = new DateTime(2024, 3, 19, 9, 15, 20, DateTimeKind.Utc),
+                WeatherStationId = 1
             },
             new WeatherData
             {
@@ -61,7 +112,8 @@ public class AppDbContext : DbContext
                 DsTemperatureC = 23.5f,
                 DSTemperatureF = 74.3f,
                 DSTemperatureK = 296.6f,
-                TimeStamp = new DateTime(2024, 3, 19, 18, 20, 30, DateTimeKind.Utc)
+                TimeStamp = new DateTime(2024, 3, 19, 18, 20, 30, DateTimeKind.Utc),
+                WeatherStationId = 2
             },
             new WeatherData
             {
@@ -73,34 +125,9 @@ public class AppDbContext : DbContext
                 DsTemperatureC = 23.2f,
                 DSTemperatureF = 73.8f,
                 DSTemperatureK = 296.3f,
-                TimeStamp = new DateTime(2024, 3, 20, 7, 10, 45, DateTimeKind.Utc)
+                TimeStamp = new DateTime(2024, 3, 20, 7, 10, 45, DateTimeKind.Utc),
+                WeatherStationId = 2
             }
         );
-
-        modelBuilder.Entity<User>().HasData(
-            new User
-            {
-                Id = 1,
-                Username = "Pucdolf",
-                Email = "pucdolf@example.com",
-                Password = "password",
-                Role = "Admin",
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow
-
-            },
-
-            new User
-            {
-                Id = 2,
-                Username = "PGKuba",
-                Email = "pgkuba@example.com",
-                Password = "1234",
-                Role = "User",
-                CreatedAt = DateTime.UtcNow,
-                UpdatedAt = DateTime.UtcNow
-            }
-
-    );
     }
 }
