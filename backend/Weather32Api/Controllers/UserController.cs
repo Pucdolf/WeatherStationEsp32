@@ -178,7 +178,7 @@ namespace Weather32Api.Controllers
             }
             catch (Exception e)
             {
-                var errorResponse = ApiResponse<object>.Error(500, "An error occured while creating user: ", e.Message);
+                var errorResponse = ApiResponse<object>.Error(500, "An error occured while updating user: ", e.Message);
                 return StatusCode(500, errorResponse);
                 //return StatusCode(StatusCodes.Status500InternalServerError,
                 //    $"An error occured while updating the user: {e.Message}");
