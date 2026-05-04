@@ -11,5 +11,9 @@ namespace Weather32Api.Models.DTO
         [Required]
         [MaxLength(50)]
         public string Location { get; set; }
+
+        [Required]
+        public int UserId { get; set; }
+
     }
 }

@@ -78,10 +78,18 @@ builder.Services.AddAutoMapper(o =>
     o.CreateMap<UserUpdateDTO, User>();
     o.CreateMap<UserDTO, UserUpdateDTO>();
     o.CreateMap<UserDTO, User>().ReverseMap();
-    
+
     o.CreateMap<WeatherStationCreateDTO, WeatherStation>();
     o.CreateMap<WeatherStationUpdateDTO, WeatherStation>();
     o.CreateMap<WeatherStationDTO, WeatherStation>().ReverseMap();
+
+    o.CreateMap<WeatherStationFeaturesCreateDTO, WeatherStationFeatures>();
+    o.CreateMap<WeatherStationFeaturesUpdateDTO, WeatherStationFeatures>();
+    o.CreateMap<WeatherStationFeatures, WeatherStationFeaturesDTO>()
+        .ForMember(dest => dest.WeatherStationName,
+            opt => opt.MapFrom(src => src.WeatherStation != null ? src.WeatherStation.Name : null));
+    o.CreateMap<WeatherStationFeaturesDTO, WeatherStationFeatures>();
+
 });
 
 builder.Services.AddScoped<IAuthService, AuthService>();
@@ -112,3 +120,4 @@ static async Task SeedDataAsync(WebApplication app)
 
     await context.Database.MigrateAsync();
 }
+

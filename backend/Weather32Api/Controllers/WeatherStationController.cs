@@ -131,6 +131,9 @@ namespace Weather32Api.Controllers
         }
 
         [HttpDelete("{id:int}")]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ApiResponse<object>>> DeleteWeatherStation(int id)
         {
             try

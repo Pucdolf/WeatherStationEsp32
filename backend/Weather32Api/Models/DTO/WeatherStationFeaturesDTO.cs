@@ -1,22 +1,25 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
-namespace Weather32Api.Models
+namespace Weather32Api.Models.DTO
 {
-    public class WeatherStationFeatures
+    public class WeatherStationFeaturesDTO
     {
-        [Key]
+        [Required]
         public int Id { get; set; }
 
+        [Required]
+        [MaxLength(100)]
         public string Name { get; set; }
+
         public string? Description { get; set; }
-        
+
         [Required]
         public int WeatherStationId { get; set; }
 
-        [ForeignKey("WeatherStationId")]
-        public WeatherStation WeatherStation { get; set; }
+        public string? WeatherStationName { get; set; }
+
+
 
     }
 }
