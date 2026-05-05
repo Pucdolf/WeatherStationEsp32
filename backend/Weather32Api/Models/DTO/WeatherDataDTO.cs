@@ -16,6 +16,7 @@ namespace Weather32Api.Models.DTO
         public float? DsTemperatureC { get; set; }
         public float? DSTemperatureF { get; set; }
         public float? DSTemperatureK { get; set; }
-
+        public DateTime TimeStamp { get; set; }
+        public int WeatherStationId { get; set; }
     }
 }

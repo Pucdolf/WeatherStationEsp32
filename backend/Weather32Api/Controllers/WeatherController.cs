@@ -84,21 +84,13 @@ namespace Weather32Api.Controllers
                 if (weatherDataDTO == null)
                 {
                     return BadRequest(ApiResponse<object>.BadRequest("Weather data is required."));
-                    //return BadRequest("Weather data is required."); //400
                 }
 
-                //WeatherData weatherData = new ()
-                //{
-                //    DhtTemperatureC = weatherDataDTO.DhtTemperatureC,
-                //    DhtTemperatureF = weatherDataDTO.DhtTemperatureF,
-                //    DhtTemperatureK = weatherDataDTO.DhtTemperatureK,
-                //    Humidity = weatherDataDTO.Humidity,
-
-                //    DsTemperatureC = weatherDataDTO.DsTemperatureC,
-                //    DSTemperatureF = weatherDataDTO.DSTemperatureF,
-                //    DSTemperatureK = weatherDataDTO.DSTemperatureK,
-                //    TimeStamp = DateTime.UtcNow
-                //};
+                var stationExists = await _dbContext.WeatherStations.AnyAsync(s => s.Id == weatherDataDTO.WeatherStationId);
+                if (!stationExists)
+                {
+                    return NotFound(ApiResponse<object>.NotFound($"Weather Station with ID {weatherDataDTO.WeatherStationId} was not found."));
+                }
 
                 WeatherData weatherData = _mapper.Map<WeatherData>(weatherDataDTO);
                 weatherData.TimeStamp = DateTime.UtcNow;
@@ -108,8 +100,8 @@ namespace Weather32Api.Controllers
 
 
                 var response = ApiResponse<WeatherDataDTO>.CreatedAt(_mapper.Map<WeatherDataDTO>(weatherData),
-                    "User created successfully.");
-                return CreatedAtAction(nameof(CreateWeatherData), new { id = weatherData.Id }, response); //201 Created
+                    "Weather data created successfully.");
+                return CreatedAtAction(nameof(GetWeatherDataById), new { id = weatherData.Id }, response); //201 Created
             }
             catch (Exception e)
             {

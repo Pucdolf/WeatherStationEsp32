@@ -21,9 +21,9 @@ namespace Weather32Api.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(ApiResponse<IEnumerable<WeatherStation>>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse<IEnumerable<WeatherStationDTO>>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
-        public async Task<ActionResult<ApiResponse<WeatherStationDTO>>> GetWeatherStations()
+        public async Task<ActionResult<ApiResponse<IEnumerable<WeatherStationDTO>>>> GetWeatherStations()
         {
             var weatherStations = await _dbContext.WeatherStations.ToListAsync();
             var dtoResponseWeatherStation = _mapper.Map<List<WeatherStationDTO>>(weatherStations);
@@ -32,6 +32,9 @@ namespace Weather32Api.Controllers
 
 
         [HttpGet("{id:int}")]
+        [ProducesResponseType(typeof(ApiResponse<WeatherStationDTO>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(ApiResponse<object>), StatusCodes.Status500InternalServerError)]
         public async Task<ActionResult<ApiResponse<WeatherStationDTO>>> GetWeatherStationById(int id)
         {
             try
@@ -83,7 +86,7 @@ namespace Weather32Api.Controllers
                 var response =
                     ApiResponse<WeatherStationDTO>.CreatedAt(_mapper.Map<WeatherStationDTO>(weatherStation), "Weather Station created successfully.");
 
-                return CreatedAtAction(nameof(CreateWeatherStation), new { id = weatherStation.Id }, response);
+                return CreatedAtAction(nameof(GetWeatherStationById), new { id = weatherStation.Id }, response);
             }
             catch (Exception e)
             {
@@ -108,6 +111,12 @@ namespace Weather32Api.Controllers
                     return BadRequest(ApiResponse<object>.BadRequest("Weather Station data is required."));
                 }
 
+                if (id != weatherStationDTO.Id)
+                {
+                    return BadRequest(ApiResponse<object>.BadRequest(
+                        "Weather Station ID in URl does not match Weather Station ID in request body."));
+                }
+
                 var existingStation = await _dbContext.WeatherStations.FirstOrDefaultAsync(s => s.Id == id);
 
                 if (existingStation == null)
@@ -124,7 +133,7 @@ namespace Weather32Api.Controllers
             }
             catch (Exception e)
             {
-                var errorResponse = ApiResponse<object>.Error(500, "An error occured while updating Weather Station: ", e.Message);
+                var errorResponse = ApiResponse<object>.Error(500, $"An error occured while updating Weather Station with ID {id}: ", e.Message);
                 return StatusCode(500, errorResponse);
 
             }

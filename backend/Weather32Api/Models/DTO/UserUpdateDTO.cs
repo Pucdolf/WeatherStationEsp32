@@ -14,6 +14,5 @@ namespace Weather32Api.Models.DTO
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }
-        public DateTime CreatedAt { get; set; }
     }
 }

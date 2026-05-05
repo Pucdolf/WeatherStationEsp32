@@ -13,6 +13,25 @@ namespace Weather32Api.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.InsertData(
+                table: "WeatherStations",
+                columns: new[] { "Id", "Location", "Name", "UserId" },
+                values: new object[,]
+                {
+                    { 1, "Bielsko", "PucekStation", 1 },
+                    { 2, "Rybki", "PGKubaStation", 2 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "WeatherStationFeatures",
+                columns: new[] { "Id", "Description", "Name", "WeatherStationId" },
+                values: new object[,]
+                {
+                    { 1, "Temperature and humidity sensor", "DHT11", 1 },
+                    { 2, "High-precision temperature sensor", "DS18B20", 1 },
+                    { 3, "Temperature and humidity sensor", "DHT11", 2 }
+                });
+
             migrationBuilder.UpdateData(
                 table: "Users",
                 keyColumn: "Id",
@@ -61,25 +80,6 @@ namespace Weather32Api.Migrations
                 keyValue: 5,
                 column: "WeatherStationId",
                 value: 2);
-
-            migrationBuilder.InsertData(
-                table: "WeatherStations",
-                columns: new[] { "Id", "Location", "Name", "UserId" },
-                values: new object[,]
-                {
-                    { 1, "Bielsko", "PucekStation", 1 },
-                    { 2, "Rybki", "PGKubaStation", 2 }
-                });
-
-            migrationBuilder.InsertData(
-                table: "WeatherStationFeatures",
-                columns: new[] { "Id", "Description", "Name", "WeatherStationId" },
-                values: new object[,]
-                {
-                    { 1, "Temperature and humidity sensor", "DHT11", 1 },
-                    { 2, "High-precision temperature sensor", "DS18B20", 1 },
-                    { 3, "Temperature and humidity sensor", "DHT11", 2 }
-                });
         }
 
         /// <inheritdoc />

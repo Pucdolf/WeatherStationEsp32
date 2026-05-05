@@ -100,9 +100,9 @@ namespace Weather32Api.Controllers
                     //return BadRequest("User data is required.");
                 }
 
-                var duplicatedVilla = await _dbContext.Users.FirstOrDefaultAsync(u => u.Username.ToLower() == userDTO.Username.ToLower());
+                var duplicatedUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Username.ToLower() == userDTO.Username.ToLower());
 
-                if (duplicatedVilla != null)
+                if (duplicatedUser != null)
                 {
                     return Conflict(
                         ApiResponse<object>.Conflict($"A user with username: {userDTO.Username} already exists."));
@@ -118,7 +118,7 @@ namespace Weather32Api.Controllers
                 await _dbContext.SaveChangesAsync();
 
                 var response = ApiResponse<UserDTO>.CreatedAt(_mapper.Map<UserDTO>(user), "User created successfully.");
-                return CreatedAtAction(nameof(CreateUser), new { id = user.Id }, response);
+                return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, response);
             }
             catch (Exception e)
             {
@@ -159,10 +159,9 @@ namespace Weather32Api.Controllers
                     //return NotFound($"User with ID {id} was not found.");
                 }
 
-                var duplicatedVilla =
-                    _dbContext.Users.FirstOrDefaultAsync(u => u.Username.ToLower() == userDTO.Username.ToLower() && u.Id != id);
+                var duplicatedUser = await _dbContext.Users.FirstOrDefaultAsync(u => u.Username.ToLower() == userDTO.Username.ToLower() && u.Id != id);
 
-                if (duplicatedVilla != null)
+                if (duplicatedUser != null)
                 {
                     return Conflict(
                         ApiResponse<object>.Conflict($"A user with username: {userDTO.Username} already exists."));
@@ -173,12 +172,12 @@ namespace Weather32Api.Controllers
                 existingUser.UpdatedAt = DateTime.UtcNow;
 
                 await _dbContext.SaveChangesAsync();
-                var response = ApiResponse<UserDTO>.Ok(_mapper.Map<UserDTO>(userDTO), "User updated successfully.");
+                var response = ApiResponse<UserDTO>.Ok(_mapper.Map<UserDTO>(existingUser), "User updated successfully.");
                 return Ok(response);
             }
             catch (Exception e)
             {
-                var errorResponse = ApiResponse<object>.Error(500, "An error occured while updating user: ", e.Message);
+                var errorResponse = ApiResponse<object>.Error(500, $"An error occured while updating user with ID {id}: ", e.Message);
                 return StatusCode(500, errorResponse);
                 //return StatusCode(StatusCodes.Status500InternalServerError,
                 //    $"An error occured while updating the user: {e.Message}");
@@ -204,7 +203,7 @@ namespace Weather32Api.Controllers
                 _dbContext.Users.Remove(existingUser);
                 await _dbContext.SaveChangesAsync();
 
-                var response = ApiResponse<object>.NoContent("Villa deleted succesfully.");
+                var response = ApiResponse<object>.NoContent("User deleted succesfully.");
                 return Ok(response);
                 //return NoContent();
             }

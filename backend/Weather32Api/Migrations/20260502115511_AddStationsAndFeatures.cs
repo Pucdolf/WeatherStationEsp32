@@ -16,8 +16,7 @@ namespace Weather32Api.Migrations
                 name: "WeatherStationId",
                 table: "WeatherRecords",
                 type: "integer",
-                nullable: false,
-                defaultValue: 0);
+                nullable: true);
 
             migrationBuilder.CreateTable(
                 name: "WeatherStations",
@@ -74,41 +73,6 @@ namespace Weather32Api.Migrations
                 keyValue: 2,
                 columns: new[] { "CreatedAt", "UpdatedAt" },
                 values: new object[] { new DateTime(2026, 5, 2, 11, 55, 9, 921, DateTimeKind.Utc).AddTicks(6662), new DateTime(2026, 5, 2, 11, 55, 9, 921, DateTimeKind.Utc).AddTicks(6663) });
-
-            migrationBuilder.UpdateData(
-                table: "WeatherRecords",
-                keyColumn: "Id",
-                keyValue: 1,
-                column: "WeatherStationId",
-                value: 0);
-
-            migrationBuilder.UpdateData(
-                table: "WeatherRecords",
-                keyColumn: "Id",
-                keyValue: 2,
-                column: "WeatherStationId",
-                value: 0);
-
-            migrationBuilder.UpdateData(
-                table: "WeatherRecords",
-                keyColumn: "Id",
-                keyValue: 3,
-                column: "WeatherStationId",
-                value: 0);
-
-            migrationBuilder.UpdateData(
-                table: "WeatherRecords",
-                keyColumn: "Id",
-                keyValue: 4,
-                column: "WeatherStationId",
-                value: 0);
-
-            migrationBuilder.UpdateData(
-                table: "WeatherRecords",
-                keyColumn: "Id",
-                keyValue: 5,
-                column: "WeatherStationId",
-                value: 0);
 
             migrationBuilder.CreateIndex(
                 name: "IX_WeatherRecords_WeatherStationId",
