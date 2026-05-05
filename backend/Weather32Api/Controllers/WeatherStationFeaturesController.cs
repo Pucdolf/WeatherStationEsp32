@@ -115,6 +115,15 @@ namespace Weather32Api.Controllers
                     return BadRequest(ApiResponse<object>.BadRequest("Weather Station Feature ID does not match Weather Station Feature ID in request body."));
                 }
 
+                var validWeatherStation = await _dbContext.WeatherStations.AnyAsync(s =>
+                    s.Id == weatherStationFeaturesDTO.WeatherStationId);
+
+                if (!validWeatherStation)
+                {
+                    return NotFound(ApiResponse<object>.NotFound(
+                        $"Weather Station with ID {weatherStationFeaturesDTO.WeatherStationId} does not exist."));
+                }
+
                 var existingFeature = await _dbContext.WeatherStationFeatures.FirstOrDefaultAsync(s => s.Id == id);
                 if (existingFeature == null)
                 {
