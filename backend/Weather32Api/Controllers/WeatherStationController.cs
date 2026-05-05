@@ -147,6 +147,11 @@ namespace Weather32Api.Controllers
         {
             try
             {
+                if (id <= 0)
+                {
+                    return BadRequest(ApiResponse<object>.BadRequest("Weather Station ID must be greater than 0."));
+                }
+
                 var existingWeatherStation = await _dbContext.WeatherStations.FirstOrDefaultAsync(s => s.Id == id);
                 if (existingWeatherStation == null)
                 {
